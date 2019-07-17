@@ -1,0 +1,6 @@
+Christiane Endler;6.5
+Juan Perez;3.0
+Alexis Sanchez;5.5
+Andres Astudillo;4.5
+Brian Baez;5.5
+Carlos Castillo;6.5

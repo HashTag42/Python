@@ -1,4 +1,7 @@
 import palindrome
 
-print(palindrome.is_palindrome("radar!"))
-print(palindrome.is_palindrome("Hello"))
+def test_palyndrome(str):
+    print("Is \"", str, "\" a palindrome?", palindrome.is_palindrome(str))
+
+test_palyndrome("radar!")
+test_palyndrome("Hello")

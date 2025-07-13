@@ -16,6 +16,8 @@ class isPrimeTests(unittest.TestCase):
         self.assertEqual(isPrime(4), False)
     def test_isPrime_5_True(self):
         self.assertEqual(isPrime(5), True)
+    def test_isPrime_9_True(self):
+        self.assertEqual(isPrime(9), False)
     def test_isPrime_String_Raises_TypeError_Exception(self):
         with self.assertRaises(TypeError):
             isPrime("A")

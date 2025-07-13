@@ -33,6 +33,3 @@ class fibonacci_recursive_Tests(unittest.TestCase):
     def test_fibonacci_recursive_String_Raises_TypeError_Exception(self):
         with self.assertRaises(TypeError):
             fibonacci_recursive("A")
-
-if __name__ == "__main__":
-    unittest.main()

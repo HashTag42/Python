@@ -21,6 +21,3 @@ class isPrimeTests(unittest.TestCase):
     def test_isPrime_String_Raises_TypeError_Exception(self):
         with self.assertRaises(TypeError):
             isPrime("A")
-
-if __name__ == "__main__":
-    unittest.main()

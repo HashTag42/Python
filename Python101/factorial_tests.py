@@ -32,6 +32,3 @@ class factorial_recursive_Tests(unittest.TestCase):
     def test_factorial_recursive_String_Raises_TypeError_Exception(self):
         with self.assertRaises(TypeError):
             factorial_recursive("A")
-
-if __name__ == "__main__":
-    unittest.main()

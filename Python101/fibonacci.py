@@ -11,6 +11,7 @@ def fibonacci_iterative(num: int) -> int:
         a, b = b, a + b
     return b
 
+
 # Fibonacci (recursive)
 def fibonacci_recursive(num: int) -> int:
     if num < 0:

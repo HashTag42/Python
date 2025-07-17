@@ -7,6 +7,7 @@ def factorial_iterative(num: int) -> int:
         factorial *= i
     return factorial
 
+
 # Factorial (recursive)
 def factorial_recursive(num: int) -> int:
     if num < 0:

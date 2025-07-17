@@ -3,7 +3,6 @@ from isPrime import isPrime
 
 
 class isPrimeTests(unittest.TestCase):
-
     def test_isPrime_negative_is_False(self):
         self.assertEqual(isPrime(-1), False)
 

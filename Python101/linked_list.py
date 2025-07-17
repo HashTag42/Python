@@ -46,10 +46,19 @@ class LinkedList:
         print(str(self))
 
     def __str__(self):
-        """ Returns a string representation of the linked list"""
+        """Returns a string representation of the linked list"""
         result = ""
         current = self.head
         while current:
             result += current.data + " -> "
             current = current.next
         return result
+
+    def __len__(self):
+        """Returns the number of nodes in the list"""
+        count = 0
+        current = self.head
+        while current:
+            count += 1
+            current = current.next
+        return count

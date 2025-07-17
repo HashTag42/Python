@@ -110,3 +110,14 @@ class linked_list_delete_tests(unittest.TestCase):
         ll.append("A")
         ll.delete("D")
         self.assertEqual(str(ll), "A -> ")
+
+
+class linked_list_len_tests(unittest.TestCase):
+    def test_linked_list_len_no_nodes(self):
+        ll = LinkedList()
+        self.assertEqual(len(ll), 0)
+
+    def test_linked_list_len_one_node(self):
+        ll = LinkedList()
+        ll.append("A")
+        self.assertEqual(len(ll), 1)

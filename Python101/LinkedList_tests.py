@@ -3,6 +3,12 @@ from unittest.mock import patch
 from LinkedList import LinkedList
 
 
+class LinkedList_tests(unittest.TestCase):
+    def test_LinkedList_object_creation(self):
+        ll = LinkedList()
+        self.assertEqual(isinstance(ll, LinkedList), True)
+
+
 class LinkedList_append_tests(unittest.TestCase):
     def test_LinkedList_append_one_node(self):
         ll = LinkedList()

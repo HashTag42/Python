@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch
-from linked_list import LinkedList
+from LinkedList import LinkedList
 
 
 class linked_list_display_tests(unittest.TestCase):

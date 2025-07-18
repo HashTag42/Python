@@ -1,7 +1,7 @@
 import math
 
 
-def isPrime(n: int) -> bool:
+def is_prime(n: int) -> bool:
     """
     Checks if a given number is prime.
 

@@ -18,12 +18,12 @@ A collection of functions and classes to illustrate how to solve basic problems 
 
 * [```fibonacci_tests.py```](./fibonacci_tests.py) implements unit tests with 100% statement and branch coverage
 
-## ```isPrime``` function
+## ```is_prime``` function
 
-* [```isPrime.py```](./isPrime.py) implements a function to determine the [primality](https://en.wikipedia.org/wiki/Primality_test) of a given number:
-  * ```isPrime(n)``` returns True if n is prime, False otherwise
+* [```is_prime.py```](./is_prime.py) implements a function to determine the [primality](https://en.wikipedia.org/wiki/Primality_test) of a given number:
+  * ```is_prime(n)``` returns True if n is prime, False otherwise
     * Uses the ```isinstance()``` function to verify if an argument is of the expected type
-* [```isPrime_tests.py```](./isPrime_tests.py) implements unit tests with 100% statement and branch coverage
+* [```is_prime_tests.py```](./isPrime_tests.py) implements unit tests with 100% statement and branch coverage
 
 ## ```LinkedList``` class
 

@@ -26,6 +26,23 @@ class LinkedList:
         new_node.next = self.head
         self.head = new_node
 
+    def insert(self, node_data, new_data):
+        """Inserts a node after the first node with the given value"""
+        new_node = Node(new_data)
+        if not self.head:
+            # Handle an empty list
+            self.head = new_node
+            return
+
+        current = self.head
+        while current.next:
+            if current.data == node_data:
+                break
+            current = current.next
+        next_node = current.next
+        current.next = new_node
+        new_node.next = next_node
+
     def delete(self, data):
         """Delete the first node with the given value."""
         current = self.head

@@ -30,6 +30,7 @@ A collection of functions and classes to illustrate how to solve basic problems 
 * [```LinkedList.py```](./LinkedList.py) implements a ```LinkedList``` class with supporting methods:
   * ```append()```
   * ```prepend()```
+  * ```insert()```
   * ```delete()```
   * ```display()```
   * ```__str__```

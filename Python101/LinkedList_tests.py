@@ -3,101 +3,82 @@ from unittest.mock import patch
 from LinkedList import LinkedList
 
 
-class linked_list_display_tests(unittest.TestCase):
-    @patch("builtins.print")
-    def test_linked_list_display_with_no_nodes(self, mock_print):
-        ll = LinkedList()   # Empty list
-        ll.display()
-        mock_print.assert_called_with("")
-
-    @patch("builtins.print")
-    def test_linked_list_display_with_one_node(self, mock_print):
-        ll = LinkedList()
-        ll.append("A")
-        ll.display()
-        mock_print.assert_called_with("A -> ")
-
-    @patch("builtins.print")
-    def test_linked_list_display_with_two_nodes(self, mock_print):
-        ll = LinkedList()
-        ll.append("A")
-        ll.append("B")
-        ll.display()
-        mock_print.assert_called_with("A -> B -> ")
-
-
-class linked_list_str_tests(unittest.TestCase):
-    def test_linked_list_str_no_nodes(self):
-        ll = LinkedList()
-        self.assertEqual(str(ll), "")
-
-    def test_linked_list_str_one_node(self):
+class LinkedList_append_tests(unittest.TestCase):
+    def test_LinkedList_append_one_node(self):
         ll = LinkedList()
         ll.append("A")
         self.assertEqual(str(ll), "A -> ")
 
-    def test_linked_list_str_two_nodes(self):
-        ll = LinkedList()
-        ll.append("A")
-        ll.append("B")
-        self.assertEqual(str(ll), "A -> B -> ")
-
-
-class linked_list_append_tests(unittest.TestCase):
-    def test_linked_list_append_one_node(self):
-        ll = LinkedList()
-        ll.append("A")
-        self.assertEqual(str(ll), "A -> ")
-
-    def test_linked_list_append_three_nodes(self):
+    def test_LinkedList_append_three_nodes(self):
         ll = LinkedList()
         ll.append("A")
         ll.append("B")
         ll.append("C")
         self.assertEqual(str(ll), "A -> B -> C -> ")
 
-    def test_linked_list_append_duplicate_node(self):
+    def test_LinkedList_append_duplicate_node(self):
         ll = LinkedList()
         ll.append("A")
         ll.append("A")
         self.assertEqual(str(ll), "A -> A -> ")
 
 
-class linked_list_prepend_tests(unittest.TestCase):
-    def test_linked_list_prepend_no_nodes(self):
+class LinkedList_prepend_tests(unittest.TestCase):
+    def test_LinkedList_prepend_no_nodes(self):
         ll = LinkedList()
         ll.prepend("A")
         self.assertEqual(str(ll), "A -> ")
 
-    def test_linked_list_prepend_one_node(self):
+    def test_LinkedList_prepend_one_node(self):
         ll = LinkedList()
         ll.append("B")
         ll.prepend("A")
         self.assertEqual(str(ll), "A -> B -> ")
 
 
-class linked_list_delete_tests(unittest.TestCase):
-    def test_linked_list_delete_one_node(self):
+class LinkedList_insert_tests(unittest.TestCase):
+    def test_LinkedList_insert_empty_list(self):
+        ll = LinkedList()
+        ll.insert("", "A")
+        self.assertEqual(str(ll), "A -> ")
+
+    def test_LinkedList_insert_middle_node(self):
+        ll = LinkedList()
+        ll.append("A")
+        ll.append("C")
+        ll.insert("A", "B")
+        self.assertEqual(str(ll), "A -> B -> C -> ")
+
+    def test_LinkedList_insert_last_node(self):
+        ll = LinkedList()
+        ll.append("A")
+        ll.append("B")
+        ll.insert("B", "C")
+        self.assertEqual(str(ll), "A -> B -> C -> ")
+
+
+class LinkedList_delete_tests(unittest.TestCase):
+    def test_LinkedList_delete_one_node(self):
         ll = LinkedList()
         ll.append("A")
         ll.delete("A")
         self.assertEqual(str(ll), "")
 
-    def test_linked_list_delete_tow_nodes_delete_first_node(self):
+    def test_LinkedList_delete_tow_nodes_delete_first_node(self):
         ll = LinkedList()
         ll.append("A")
         ll.append("B")
         ll.delete("A")
         self.assertEqual(str(ll), "B -> ")
 
-    def test_linked_list_delete_two_nodes_delete_last_node(self):
+    def test_LinkedList_delete_two_nodes_delete_last_node(self):
         ll = LinkedList()
         ll.append("A")
         ll.append("B")
         ll.delete("B")
         self.assertEqual(str(ll), "A -> ")
 
-    def test_linked_list_delete_three_nodes_delete_middle_node(self):
+    def test_LinkedList_delete_three_nodes_delete_middle_node(self):
         ll = LinkedList()
         ll.append("A")
         ll.append("B")
@@ -105,19 +86,59 @@ class linked_list_delete_tests(unittest.TestCase):
         ll.delete("B")
         self.assertEqual(str(ll), "A -> C -> ")
 
-    def test_linked_list_delete_three_nodes_delete_non_existing_node(self):
+    def test_LinkedList_delete_three_nodes_delete_non_existing_node(self):
         ll = LinkedList()
         ll.append("A")
         ll.delete("D")
         self.assertEqual(str(ll), "A -> ")
 
 
-class linked_list_len_tests(unittest.TestCase):
-    def test_linked_list_len_no_nodes(self):
+class LinkedList_display_tests(unittest.TestCase):
+    @patch("builtins.print")
+    def test_LinkedList_display_with_no_nodes(self, mock_print):
+        ll = LinkedList()   # Empty list
+        ll.display()
+        mock_print.assert_called_with("")
+
+    @patch("builtins.print")
+    def test_LinkedList_display_with_one_node(self, mock_print):
+        ll = LinkedList()
+        ll.append("A")
+        ll.display()
+        mock_print.assert_called_with("A -> ")
+
+    @patch("builtins.print")
+    def test_LinkedList_display_with_two_nodes(self, mock_print):
+        ll = LinkedList()
+        ll.append("A")
+        ll.append("B")
+        ll.display()
+        mock_print.assert_called_with("A -> B -> ")
+
+
+class LinkedList_str_tests(unittest.TestCase):
+    def test_LinkedList_str_no_nodes(self):
+        ll = LinkedList()
+        self.assertEqual(str(ll), "")
+
+    def test_LinkedList_str_one_node(self):
+        ll = LinkedList()
+        ll.append("A")
+        self.assertEqual(str(ll), "A -> ")
+
+    def test_LinkedList_str_two_nodes(self):
+        ll = LinkedList()
+        ll.append("A")
+        ll.append("B")
+        self.assertEqual(str(ll), "A -> B -> ")
+
+
+class LinkedList_len_tests(unittest.TestCase):
+    def test_LinkedList_len_no_nodes(self):
         ll = LinkedList()
         self.assertEqual(len(ll), 0)
 
-    def test_linked_list_len_one_node(self):
+    def test_LinkedList_len_one_node(self):
         ll = LinkedList()
         ll.append("A")
         self.assertEqual(len(ll), 1)

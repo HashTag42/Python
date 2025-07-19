@@ -2,6 +2,14 @@
 
 A collection of functions and classes to illustrate how to solve basic problems in Python. Usage is demonstrated through the included unit tests.
 
+## ```BinaryTree``` class
+
+* [```BinaryTree.py```](./BinaryTree.py) implements a ```BinaryTree``` class with supporting methods:
+  * ```insert()```
+  * ```search()```
+  * ```inorder_traversal()```
+* [```BinaryTree_tests.py```](./BinaryTree_tests.py) implements unit tests with 100% statement and branch coverage
+
 ## ```factorial``` functions
 
 * [```factorial.py```](./factorial.py) implements [Factorial](https://en.wikipedia.org/wiki/Factorial) functions:

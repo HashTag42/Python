@@ -103,3 +103,31 @@ class BinaryTree_inorder_traversal_tests(unittest.TestCase):
         bt.insert(20)
         bt.insert(5)
         self.assertEqual(bt.inorder_traversal(), [5, 10, 20])
+
+
+class BinaryTree_height_tests(unittest.TestCase):
+    def test_BinaryTree_height_empty_tree_is_zero_levels(self):
+        bt = BinaryTree()
+        self.assertEqual(bt.height(bt.root), 0)
+
+    def test_BinaryTree_height_one_node_is_one_level(self):
+        bt = BinaryTree()
+        bt.insert(10)
+        self.assertEqual(bt.height(bt.root), 1)
+
+    def test_BinaryTree_height_two_nodes_is_two_levels(self):
+        bt = BinaryTree()
+        bt.insert(10)
+        bt.insert(20)
+        self.assertEqual(bt.height(bt.root), 2)
+
+    def test_BinaryTree_height_three_levels(self):
+        bt = BinaryTree()
+        bt.insert(10)
+        bt.insert(5)
+        bt.insert(2)
+        bt.insert(8)
+        bt.insert(15)
+        bt.insert(12)
+        bt.insert(18)
+        self.assertEqual(bt.height(bt.root), 3)

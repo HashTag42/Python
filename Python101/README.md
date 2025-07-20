@@ -8,6 +8,7 @@ A collection of functions and classes to illustrate how to solve basic problems 
   * ```insert()```
   * ```search()```
   * ```inorder_traversal()```
+  * ```height()```
 * [```BinaryTree_tests.py```](./BinaryTree_tests.py) implements unit tests with 100% statement and branch coverage
 
 ## ```factorial``` functions

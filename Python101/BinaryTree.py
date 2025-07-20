@@ -53,3 +53,13 @@ class BinaryTree:
             self._inorder_recursive(node.left, result)
             result.append(node.value)
             self._inorder_recursive(node.right, result)
+
+    def height(self, root) -> int:
+        h = 0
+        if root is None:
+            h = 0
+        else:
+            l_height = self.height(root.left)
+            r_height = self.height(root.right)
+            h += 1 + max(l_height, r_height)
+        return h

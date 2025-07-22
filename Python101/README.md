@@ -47,6 +47,10 @@ A collection of functions and classes to illustrate how to solve basic problems 
 * [```LinkedList_tests.py```](./LinkedList_tests.py) implements unit tests with 100% statement and branch coverage
   * Uses the ```mock_print``` function to verify ```print()``` output
 
+## ```sequences```
+
+* [```sequences_tests.py```](./sequences_tests.py) defines unit tests to illustrate how to access sequences of items
+
 ## ```types```
 
 * [```types_tests.py```](./types_tests.py) defines unit tests to illustrate all basic data types

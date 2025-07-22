@@ -5,7 +5,7 @@ from BinaryTree import Node, BinaryTree
 class Node_tests(unittest.TestCase):
     def test_Node_object_creation(self):
         n = Node(0)
-        self.assertEqual(isinstance(n, Node), True)
+        self.assertTrue(isinstance(n, Node))
 
     def test_Node_value(self):
         n = Node(0)
@@ -31,27 +31,27 @@ class BinaryTree_tests(unittest.TestCase):
     def test_BinaryTree_object_creation(self):
         """Verify a BinaryTree object can be instantiated"""
         bt = BinaryTree()
-        self.assertEqual(isinstance(bt, BinaryTree), True)
+        self.assertTrue(isinstance(bt, BinaryTree))
 
 
 class BinaryTree_insert_tests(unittest.TestCase):
     def test_BinaryTree_insert_one_node(self):
         bt = BinaryTree()
         bt.insert(10)
-        self.assertEqual(bt.search(10), True)
+        self.assertTrue(bt.search(10))
 
     def test_BinaryTree_insert_two_nodes(self):
         bt = BinaryTree()
         bt.insert(10)
         bt.insert(5)
-        self.assertEqual(bt.search(5), True)
+        self.assertTrue(bt.search(5))
 
     def test_BinaryTree_insert_three_nodes(self):
         bt = BinaryTree()
         bt.insert(10)
         bt.insert(5)
         bt.insert(15)
-        self.assertEqual(bt.search(15), True)
+        self.assertTrue(bt.search(15))
 
     def test_BinaryTree_insert_two_levels(self):
         bt = BinaryTree()
@@ -68,17 +68,17 @@ class BinaryTree_insert_tests(unittest.TestCase):
 class BinaryTree_search_tests(unittest.TestCase):
     def test_BinaryTree_search_no_nodes(self):
         bt = BinaryTree()
-        self.assertEqual(bt.search(10), False)
+        self.assertFalse(bt.search(10))
 
     def test_BinaryTree_search_one_node(self):
         bt = BinaryTree()
         bt.insert(10)
-        self.assertEqual(bt.search(10), True)
+        self.assertTrue(bt.search(10))
 
     def test_BinaryTree_search_non_existing_node(self):
         bt = BinaryTree()
         bt.insert(10)
-        self.assertEqual(bt.search(5), False)
+        self.assertFalse(bt.search(5))
 
 
 class BinaryTree_inorder_traversal_tests(unittest.TestCase):

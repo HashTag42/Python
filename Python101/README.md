@@ -49,4 +49,4 @@ A collection of functions and classes to illustrate how to solve basic problems 
 
 ## ```types```
 
-* [```types_tests.py```](./types_tests.py) defines unit tests to illustrate the different basic data types available in Python
+* [```types_tests.py```](./types_tests.py) defines unit tests to illustrate all basic data types

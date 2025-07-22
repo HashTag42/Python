@@ -6,7 +6,7 @@ from LinkedList import LinkedList
 class LinkedList_tests(unittest.TestCase):
     def test_LinkedList_object_creation(self):
         ll = LinkedList()
-        self.assertEqual(isinstance(ll, LinkedList), True)
+        self.assertTrue(isinstance(ll, LinkedList))
 
 
 class LinkedList_append_tests(unittest.TestCase):

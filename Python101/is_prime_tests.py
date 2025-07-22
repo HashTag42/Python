@@ -4,28 +4,28 @@ from is_prime import is_prime
 
 class is_prime_Tests(unittest.TestCase):
     def test_is_prime_negative_is_False(self):
-        self.assertEqual(is_prime(-1), False)
+        self.assertFalse(is_prime(-1))
 
     def test_is_prime_0_is_False(self):
-        self.assertEqual(is_prime(0), False)
+        self.assertFalse(is_prime(0))
 
     def test_is_prime_1_is_False(self):
-        self.assertEqual(is_prime(1), False)
+        self.assertFalse(is_prime(1))
 
     def test_is_prime_2_is_True(self):
-        self.assertEqual(is_prime(2), True)
+        self.assertTrue(is_prime(2))
 
     def test_is_prime_3_is_True(self):
-        self.assertEqual(is_prime(3), True)
+        self.assertTrue(is_prime(3))
 
     def test_is_prime_4_is_False(self):
-        self.assertEqual(is_prime(4), False)
+        self.assertFalse(is_prime(4))
 
     def test_is_prime_35_is_False(self):
-        self.assertEqual(is_prime(35), False)
+        self.assertFalse(is_prime(35))
 
     def test_is_prime_37_is_True(self):
-        self.assertEqual(is_prime(37), True)
+        self.assertTrue(is_prime(37))
 
     def test_is_prime_Float_Raises_TypeError_Exception(self):
         with self.assertRaises(TypeError):

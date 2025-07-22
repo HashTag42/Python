@@ -26,7 +26,7 @@ class sequence_tests(unittest.TestCase):
         self.assertEqual(self.mylist[::-1], [False, 3.2, "two", 1, 0])
 
     def test_tuple_item(self):
-        self.assertEqual(self.mytuple[2], 2)
+        self.assertEqual(self.mytuple[2], "two")
 
     def test_tuple_slice(self):
         self.assertEqual(self.mytuple[1:3], (1, "two"))

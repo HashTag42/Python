@@ -13,6 +13,15 @@ class sequence_tests(unittest.TestCase):
     def test_dict_item(self):
         self.assertEqual(self.mydict["i1"], 1)
 
+    def test_dict_update_all(self):
+        for key in self.mydict:
+            self.mydict[key] = 0
+        self.assertTrue(self.mydict["i0"] == 0)
+        self.assertTrue(self.mydict["i1"] == 0)
+        self.assertTrue(self.mydict["i2"] == 0)
+        self.assertTrue(self.mydict["i3"] == 0)
+        self.assertTrue(self.mydict["i4"] == 0)
+
     def test_list_item(self):
         self.assertEqual(self.mylist[2], "two")
 

@@ -31,6 +31,17 @@ A collection of functions and classes to illustrate how to solve basic problems 
 
 * [```fibonacci_tests.py```](./fibonacci_tests.py) implements unit tests with 100% statement and branch coverage
 
+## ```functions```
+
+* [```functions.py```](./functions.py) illustrates different types of functions
+  * no arguments
+  * named arguments
+  * variable number of arguments
+  * variable number of keyword arguments
+  * weak argument type validation
+  * string argument type validation
+* [```functions_tests.py```](./functions_tests.py) implements unit tests with 100% statement and branch coverage
+
 ## ```is_prime``` function
 
 * [```is_prime.py```](./is_prime.py) implements a function to determine the [primality](https://en.wikipedia.org/wiki/Primality_test) of a given number:

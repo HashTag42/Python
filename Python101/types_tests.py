@@ -46,7 +46,32 @@ class types_tests(unittest.TestCase):
     # MAPPING TYPE
     def test_dict(self):
         d = {"name": "César", "role": "SDET"}
+        d["Elite"] = True
         self.assertEqual(type(d), dict)
+        self.assertEqual(d["name"], "César")
+        self.assertTrue(d["Elite"])
+
+    def test_dict_add(self):
+        d = {0: "Zero", 1: "One"}
+        d[2] = "Two"
+        self.assertEqual(len(d), 3)
+
+    def test_dict_update(self):
+        d = {0: "Zero", 1: "One"}
+        # Use .update() to add a new key/value
+        d.update({2: "Two"})
+        self.assertEqual(len(d), 3)
+        # Use .update() to update an existing value
+        d.update({2: "Dos"})
+        self.assertEqual(d[2], "Dos")
+
+    def test_dict_setdefault(self):
+        d = {0: "Zero", 1: "One"}
+        # Key doesn't exist - insert the key/value
+        d.setdefault(2, "Two")
+        self.assertEqual(len(d), 3)
+        # Key exists -- return the value
+        self.assertEqual(d.setdefault(2, "Two"), "Two")
 
     # SET TYPES
     def test_set(self):

@@ -1,3 +1,6 @@
+import time
+
+
 def function():
     # Function without arguments
     return "I am a function"
@@ -42,3 +45,20 @@ def echo_int_strong_typed(input):
     if not isinstance(input, int):
         raise TypeError("Argument must be an integer")
     return input
+
+
+# Decorator definition
+def timer(func):
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        result = func(*args, **kwargs)
+        end = time.time()
+        print(f"{func.__name__} took {end - start:.4f} seconds")
+        return result
+    return wrapper
+
+
+@timer
+def slow_function():
+    time.sleep(1)
+    print("Finished")

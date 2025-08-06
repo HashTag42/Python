@@ -6,6 +6,7 @@ from functions import echo_kwargs
 from functions import echo_any
 from functions import echo_int_weak_typed
 from functions import echo_int_strong_typed
+from functions import slow_function
 
 
 class functions_tests(unittest.TestCase):
@@ -59,3 +60,6 @@ class functions_tests(unittest.TestCase):
     def test_echo_int_string_string(self):
         with self.assertRaises(TypeError):
             echo_int_strong_typed("Yadda")
+
+    def test_timer_decorator(self):
+        slow_function()

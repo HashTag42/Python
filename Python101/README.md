@@ -34,12 +34,15 @@ A collection of functions and classes to illustrate how to solve basic problems 
 ## ```functions```
 
 * [```functions.py```](./functions.py) illustrates different types of functions
+
   * no arguments
   * named arguments
   * variable number of arguments
   * variable number of keyword arguments
   * weak argument type validation
-  * string argument type validation
+  * strong argument type validation
+  * function decorator
+
 * [```functions_tests.py```](./functions_tests.py) implements unit tests with 100% statement and branch coverage
 
 ## ```is_prime``` function

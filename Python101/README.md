@@ -13,6 +13,11 @@ A collection of functions and classes to illustrate how to solve basic problems 
 
 * [```BinaryTree_tests.py```](./BinaryTree_tests.py) implements unit tests with 100% statement and branch coverage
 
+## ```classes```
+
+* [```classes.py```](./classes.py) implements classes demonstrating inheritance
+* [```classes_tests.py```](./classes_tests.py) implements unit tests with 100% statement and branch coverage
+
 ## ```factorial``` functions
 
 * [```factorial.py```](./factorial.py) implements [Factorial](https://en.wikipedia.org/wiki/Factorial) functions:
@@ -33,7 +38,7 @@ A collection of functions and classes to illustrate how to solve basic problems 
 
 ## ```functions```
 
-* [```functions.py```](./functions.py) illustrates different types of functions
+* [```functions.py```](./functions.py) illustrates different types of functions with:
 
   * no arguments
   * named arguments

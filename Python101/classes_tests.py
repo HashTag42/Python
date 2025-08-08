@@ -3,7 +3,7 @@ import unittest
 from classes import Vehicle, Car, Motorcycle
 
 
-class Classes_Tests(unittest.TestCase):
+class classes_Tests(unittest.TestCase):
     def setUp(self):
         pass
 
@@ -43,7 +43,3 @@ class Classes_Tests(unittest.TestCase):
         self.assertEqual(ev_mc.doors, 0)
         self.assertEqual(ev_mc.wheels, 2)
         self.assertEqual(ev_mc.drive(40), "Driving my electric Motorcycle at 40")
-
-
-if __name__ == "__main__":
-    unittest.main()

@@ -78,6 +78,11 @@ class types_tests(unittest.TestCase):
         s = {1, 2, 3}
         self.assertEqual(type(s), set)
 
+    def test_set_add(self):
+        s = {1, 2, 3}
+        s.add(4)
+        self.assertEqual(str(s), "{1, 2, 3, 4}")
+
     def test_frozentest(self):
         fs = frozenset([1, 2])
         self.assertEqual(type(fs), frozenset)

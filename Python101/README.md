@@ -15,7 +15,14 @@ A collection of functions and classes to illustrate how to solve basic problems 
 
 ## ```classes```
 
-* [```classes.py```](./classes.py) implements classes demonstrating inheritance
+* [```classes.py```](./classes.py) implements classes demonstrating inheritance:
+  * Human
+    * Person
+      * Man
+      * Woman
+  * Vehicle
+    * Car
+    * Motorcycle
 * [```classes_tests.py```](./classes_tests.py) implements unit tests with 100% statement and branch coverage
 
 ## ```datetime```

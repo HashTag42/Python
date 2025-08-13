@@ -75,13 +75,17 @@ class types_tests(unittest.TestCase):
 
     # SET TYPES
     def test_set(self):
-        s = {1, 2, 3}
+        s = set()
         self.assertEqual(type(s), set)
 
     def test_set_add(self):
+        s = set()
         s = {1, 2, 3}
-        s.add(4)
-        self.assertEqual(str(s), "{1, 2, 3, 4}")
+        self.assertEqual(s, {1, 2, 3})
+        s.add(4)  # Add a new element to the set
+        self.assertEqual(s, {1, 2, 3, 4})
+        s.add(4)  # Attempt to add an already existing element to the set = noop
+        self.assertEqual(s, {1, 2, 3, 4})
 
     def test_frozentest(self):
         fs = frozenset([1, 2])

@@ -91,6 +91,11 @@ A collection of functions and classes to illustrate how to solve basic problems 
 
 * [```sequences_tests.py```](./sequences_tests.py) defines unit tests to illustrate how to access sequences of items
 
+## ```SortedList```
+
+* [```SortedList.py```](./SortedList.py) implements a ```SortedList``` subclass of the ```list``` class.
+* [```SortedList_tests.py```](./SortedList_tests.py) implements unit tests with 100% statement and branch coverage
+
 ## ```types```
 
 * [```types_tests.py```](./types_tests.py) defines unit tests to illustrate all basic data types:

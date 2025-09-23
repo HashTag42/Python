@@ -13,7 +13,7 @@ A collection of functions and classes to illustrate how to solve basic problems 
 
 * [```BinaryTree_tests.py```](./BinaryTree_tests.py) implements unit tests with 100% statement and branch coverage
 
-## ```classes```
+## ```Classes```
 
 * [```classes.py```](./classes.py) implements classes demonstrating inheritance:
   * Human
@@ -25,11 +25,11 @@ A collection of functions and classes to illustrate how to solve basic problems 
     * Motorcycle
 * [```classes_tests.py```](./classes_tests.py) implements unit tests with 100% statement and branch coverage
 
-## ```datetime```
+## ```Datetime```
 
 * [```datime_tests.py```](./datetime_tests.py) implements unit tests to demonstrate the use of the `date`, `datetime`, `time`, and `deltatime` classes
 
-## ```factorial```
+## ```Factorial``` functions
 
 * [```factorial.py```](./factorial.py) implements [Factorial](https://en.wikipedia.org/wiki/Factorial) functions
 
@@ -38,7 +38,7 @@ A collection of functions and classes to illustrate how to solve basic problems 
 
 * [```factorial_tests.py```](./factorial_tests.py) implements unit tests with 100% statement and branch coverage
 
-## ```fibonacci```
+## ```Fibonacci``` functions
 
 * [```fibonacci.py```](./fibonacci.py) implements functions related to the [Fibonacci Sequence](https://en.wikipedia.org/wiki/Fibonacci_sequence):
 
@@ -47,7 +47,11 @@ A collection of functions and classes to illustrate how to solve basic problems 
 
 * [```fibonacci_tests.py```](./fibonacci_tests.py) implements unit tests with 100% statement and branch coverage
 
-## ```functions```
+## ```Files```
+
+* [```files.py```](./files.py) illustrates file manipulation
+
+## ```Functions```
 
 * [```functions.py```](./functions.py) illustrates different types of functions with:
 
@@ -61,7 +65,7 @@ A collection of functions and classes to illustrate how to solve basic problems 
 
 * [```functions_tests.py```](./functions_tests.py) implements unit tests with 100% statement and branch coverage
 
-## ```is_prime```
+## ```is_prime``` function
 
 * [```is_prime.py```](./is_prime.py) implements a function to determine the [primality](https://en.wikipedia.org/wiki/Primality_test) of a given number:
 
@@ -71,7 +75,7 @@ A collection of functions and classes to illustrate how to solve basic problems 
 
 * [```is_prime_tests.py```](./isPrime_tests.py) implements unit tests with 100% statement and branch coverage
 
-## ```LinkedList```
+## ```LinkedList``` class
 
 * [```LinkedList.py```](./LinkedList.py) implements a ```LinkedList``` class with supporting methods:
 
@@ -87,16 +91,16 @@ A collection of functions and classes to illustrate how to solve basic problems 
 
   * Uses the ```mock_print``` function to verify ```print()``` output
 
-## ```sequences```
+## ```Sequences```
 
 * [```sequences_tests.py```](./sequences_tests.py) defines unit tests to illustrate how to access sequences of items
 
-## ```SortedList```
+## ```SortedList``` class
 
 * [```SortedList.py```](./SortedList.py) implements a ```SortedList``` subclass of the ```list``` class.
 * [```SortedList_tests.py```](./SortedList_tests.py) implements unit tests with 100% statement and branch coverage
 
-## ```types```
+## ```Types```
 
 * [```types_tests.py```](./types_tests.py) defines unit tests to illustrate all basic data types:
 
@@ -112,3 +116,5 @@ A collection of functions and classes to illustrate how to solve basic problems 
   * set
   * frozenset
   * NoneType
+
+***

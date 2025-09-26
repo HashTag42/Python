@@ -40,10 +40,15 @@ A collection of functions and classes to illustrate how to solve basic problems 
 
 ## ```Fibonacci``` functions
 
-* [```fibonacci.py```](./fibonacci.py) implements functions related to the [Fibonacci Sequence](https://en.wikipedia.org/wiki/Fibonacci_sequence):
+* [```fibonacci.py```](./fibonacci.py) implements functions related to the [Fibonacci Sequence](https://en.wikipedia.org/wiki/Fibonacci_sequence), defined as:
+    > ```F(0) = 0, F(1) = 1```
+    >
+    > ```F(n) = F(n - 1) + F(n - 2), with n > 1```
 
-  * ```fibonacci_iterative(n)``` returns F(n) through an iterative implementation
-  * ```fibonacci_recursive(n)``` returns F(n) through a recursive implementation
+  * ```fibonacci_nth_iterative(n)``` returns F(n) through an iterative implementation
+  * ```fibonacci_nth_recursive(n)``` returns F(n) through a recursive implementation
+  * ```fibonacci_nth_recursive_with_memoization(n)``` returns F(n) through a recursive implementation using [memoization](https://en.wikipedia.org/wiki/Memoization) to store past results
+  * ```fibonacci_sequence(n)``` returns a string representing a list of Fibonacci numbers from F(0) to F(n)
 
 * [```fibonacci_tests.py```](./fibonacci_tests.py) implements unit tests with 100% statement and branch coverage
 

@@ -1,6 +1,11 @@
 import unittest
 
-from fibonacci import fibonacci_nth_iterative, fibonacci_nth_recursive, fibonacci_sequence
+from fibonacci import (
+    fibonacci_nth_iterative,
+    fibonacci_nth_recursive,
+    fibonacci_nth_recursive_with_memoization,
+    fibonacci_sequence
+)
 
 
 class fibonacci_nth_iterative_Tests(unittest.TestCase):
@@ -57,6 +62,34 @@ class fibonacci_nth_recursive_Tests(unittest.TestCase):
     def test_fibonacci_nth_recursive_String_raises_TypeError_exception(self):
         with self.assertRaises(TypeError):
             fibonacci_nth_recursive("A")
+
+
+class fibonacci_nth_recursive_with_memoization_Tests(unittest.TestCase):
+    def test_fibonacci_nth_recursive_with_memoization_0(self):
+        self.assertEqual(fibonacci_nth_recursive_with_memoization(0), 0)
+
+    def test_fibonacci_nth_recursive_with_memoization_1(self):
+        self.assertEqual(fibonacci_nth_recursive_with_memoization(1), 1)
+
+    def test_fibonacci_nth_recursive_with_memoization_2(self):
+        self.assertEqual(fibonacci_nth_recursive_with_memoization(2), 1)
+
+    def test_fibonacci_nth_recursive_with_memoization_3(self):
+        self.assertEqual(fibonacci_nth_recursive_with_memoization(3), 2)
+
+    def test_fibonacci_nth_recursive_with_memoization_5(self):
+        self.assertEqual(fibonacci_nth_recursive_with_memoization(5), 5)
+
+    def test_fibonacci_nth_recursive_with_memoization_10(self):
+        self.assertEqual(fibonacci_nth_recursive_with_memoization(10), 55)
+
+    def test_fibonacci_nth_recursive_with_memoization_Negative_raises_ValueError_exception(self):
+        with self.assertRaises(ValueError):
+            fibonacci_nth_recursive_with_memoization(-1)
+
+    def test_fibonacci_nth_recursive_with_memoization_String_raises_TypeError_exception(self):
+        with self.assertRaises(TypeError):
+            fibonacci_nth_recursive_with_memoization("A")
 
 
 class fibonacci_sequence_Tests(unittest.TestCase):

@@ -13,7 +13,7 @@ def fibonacci_nth_iterative(n: int) -> int:
     '''
     Function: fibonacci_nth_iterative(n)
         Returns the nth number in the Fibonacci sequence. Iterative implementation.
-        Definition:
+        Definition of a Fibonacci number:
             F(0) = 0, F(1) = 1,
             F(n) = F(n - 1) + F(n - 2), for n > 1.
     '''
@@ -35,7 +35,7 @@ def fibonacci_nth_recursive(n: int) -> int:
     '''
     Function: fibonacci_nth_recursive(n)
         Returns the nth number in the Fibonacci sequence. Recursive implementation.
-        Definition:
+        Definition of a Fibonacci number:
             F(0) = 0, F(1) = 1,
             F(n) = F(n - 1) + F(n - 2), for n > 1.
     '''
@@ -52,10 +52,16 @@ def fibonacci_nth_recursive(n: int) -> int:
 def fibonacci_sequence(n: int) -> str:
     '''
     Function: fibonacci_sequence(n)
-        Returns a string with Fibonacci sequence up to F(n). Note this is zero-based.
-        Definition:
+        Returns a string representing a list of the Fibonacci numbers from F(0) up to F(n).
+        Definition of a Fibonacci number:
             F(0) = 0, F(1) = 1,
             F(n) = F(n - 1) + F(n - 2), for n > 1.
+        Examples:
+            fibonacci_sequence(0) = "0"
+            fibonacci_sequence(1) = "0, 1"
+            fibonacci_sequence(2) = "0, 1, 1"
+            fibonacci_sequence(5) = "0, 1, 1, 2, 3, 5"
+            fibonacci_sequence(10) = "0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55"
     '''
     if n < 0:
         raise ValueError("Number must be a positive integer")

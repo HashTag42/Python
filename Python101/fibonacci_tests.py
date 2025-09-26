@@ -1,6 +1,6 @@
 import unittest
 
-from fibonacci import fibonacci_nth_iterative, fibonacci_nth_recursive
+from fibonacci import fibonacci_nth_iterative, fibonacci_nth_recursive, fibonacci_sequence
 
 
 class fibonacci_nth_iterative_Tests(unittest.TestCase):
@@ -57,3 +57,28 @@ class fibonacci_nth_recursive_Tests(unittest.TestCase):
     def test_fibonacci_nth_recursive_String_raises_TypeError_exception(self):
         with self.assertRaises(TypeError):
             fibonacci_nth_recursive("A")
+
+
+class fibonacci_sequence_Tests(unittest.TestCase):
+    def test_fibonacci_sequence_0(self):
+        self.assertEqual(fibonacci_sequence(0), "0")
+
+    def test_fibonacci_sequence_1(self):
+        self.assertEqual(fibonacci_sequence(1), "0, 1")
+
+    def test_fibonacci_sequence_2(self):
+        self.assertEqual(fibonacci_sequence(2), "0, 1, 1")
+
+    def test_fibonacci_sequence_5(self):
+        self.assertEqual(fibonacci_sequence(5), "0, 1, 1, 2, 3, 5")
+
+    def test_fibonacci_sequence_10(self):
+        self.assertEqual(fibonacci_sequence(10), "0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55")
+
+    def test_fibonacci_sequence_Negative_raises_ValueError_exception(self):
+        with self.assertRaises(ValueError):
+            fibonacci_sequence(-1)
+
+    def test_fibonacci_sequence_String_raises_TypeError_exception(self):
+        with self.assertRaises(TypeError):
+            fibonacci_sequence("A")

@@ -27,8 +27,7 @@ def fibonacci_nth_iterative(n: int) -> int:
         a, b = 0, 1
         for _ in range(2, n + 1):
             c = a + b
-            a = b
-            b = c
+            a, b = b, c
         return c
 
 
@@ -48,3 +47,26 @@ def fibonacci_nth_recursive(n: int) -> int:
         return 1
     else:
         return fibonacci_nth_recursive(n-1) + fibonacci_nth_recursive(n-2)
+
+
+def fibonacci_sequence(n: int) -> str:
+    '''
+    Function: fibonacci_sequence(n)
+        Returns a string with Fibonacci sequence up to F(n). Note this is zero-based.
+        Definition:
+            F(0) = 0, F(1) = 1,
+            F(n) = F(n - 1) + F(n - 2), for n > 1.
+    '''
+    if n < 0:
+        raise ValueError("Number must be a positive integer")
+    sequence = ""
+    if n >= 0:
+        sequence += "0"
+    if n >= 1:
+        sequence += ", 1"
+    a, b = 0, 1
+    for _ in range(2, n + 1):
+        c = a + b
+        a, b = b, c
+        sequence += ", " + str(c)
+    return sequence

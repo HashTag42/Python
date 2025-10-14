@@ -195,10 +195,8 @@ class LinkedList__len__tests(unittest.TestCase):
 class LinkedList__iter__tests(unittest.TestCase):
     def test_LinkedList__iter__three_nodes(self):
         ll = LinkedList()
-        ll.append("A")
-        ll.append("B")
-        ll.append("C")
-        result = ""
+        ll.append_from_list(["A", "B", "C"])
+        items = []
         for x in ll:
-            result += x
-        self.assertEqual(result, "ABC")
+            items.append(x)
+        self.assertEqual(items, ["A", "B", "C"])

@@ -1,9 +1,8 @@
 import unittest
-from unittest.mock import patch
 from LinkedList import LinkedList
 
 
-class LinkedList_tests(unittest.TestCase):
+class LinkedList_init_tests(unittest.TestCase):
     def test_LinkedList_object_creation(self):
         ll = LinkedList()
         self.assertTrue(isinstance(ll, LinkedList))
@@ -27,6 +26,18 @@ class LinkedList_append_tests(unittest.TestCase):
         ll.append("A")
         ll.append("A")
         self.assertEqual(str(ll), "A -> A -> ")
+
+
+class LinkedList_append_from_list_tests(unittest.TestCase):
+    def test_LinkedList_append_from_list_one_node(self):
+        ll = LinkedList()
+        ll.append_from_list([1])
+        self.assertTrue(str(ll), "1 -> ")
+
+    def test_LinkedList_append_from_list_three_node(self):
+        ll = LinkedList()
+        ll.append_from_list(["A", "B", "C"])
+        self.assertTrue(str(ll), "A -> B -> C -> ")
 
 
 class LinkedList_prepend_tests(unittest.TestCase):
@@ -70,21 +81,21 @@ class LinkedList_delete_tests(unittest.TestCase):
         ll.delete("A")
         self.assertEqual(str(ll), "")
 
-    def test_LinkedList_delete_tow_nodes_delete_first_node(self):
+    def test_LinkedList_delete_from_two_nodes_delete_first_node(self):
         ll = LinkedList()
         ll.append("A")
         ll.append("B")
         ll.delete("A")
         self.assertEqual(str(ll), "B -> ")
 
-    def test_LinkedList_delete_two_nodes_delete_last_node(self):
+    def test_LinkedList_delete_from_two_nodes_delete_last_node(self):
         ll = LinkedList()
         ll.append("A")
         ll.append("B")
         ll.delete("B")
         self.assertEqual(str(ll), "A -> ")
 
-    def test_LinkedList_delete_three_nodes_delete_middle_node(self):
+    def test_LinkedList_delete_from_three_nodes_delete_middle_node(self):
         ll = LinkedList()
         ll.append("A")
         ll.append("B")
@@ -92,34 +103,11 @@ class LinkedList_delete_tests(unittest.TestCase):
         ll.delete("B")
         self.assertEqual(str(ll), "A -> C -> ")
 
-    def test_LinkedList_delete_three_nodes_delete_non_existing_node(self):
+    def test_LinkedList_delete_from_one_node_delete_non_existing_node(self):
         ll = LinkedList()
         ll.append("A")
         ll.delete("D")
         self.assertEqual(str(ll), "A -> ")
-
-
-class LinkedList_print_tests(unittest.TestCase):
-    @patch("builtins.print")
-    def test_LinkedList_print_with_no_nodes(self, mock_print):
-        ll = LinkedList()   # Empty list
-        ll.print()
-        mock_print.assert_called_with("")
-
-    @patch("builtins.print")
-    def test_LinkedList_print_with_one_node(self, mock_print):
-        ll = LinkedList()
-        ll.append("A")
-        ll.print()
-        mock_print.assert_called_with("A -> ")
-
-    @patch("builtins.print")
-    def test_LinkedList_print_with_two_nodes(self, mock_print):
-        ll = LinkedList()
-        ll.append("A")
-        ll.append("B")
-        ll.print()
-        mock_print.assert_called_with("A -> B -> ")
 
 
 class LinkedList_str_tests(unittest.TestCase):

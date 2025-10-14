@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Node:
     def __init__(self, data):
         self.data = data  # value of the node
@@ -19,6 +22,14 @@ class LinkedList:
         while current.next:
             current = current.next
         current.next = new_node
+
+    def append_from_list(self, lst: List):
+        if lst:
+            self.head = Node(lst[0])
+            current = self.head
+            for val in lst[1:]:
+                current.next = Node(val)
+                current = current.next
 
     def prepend(self, data):
         """Add a node to the beginning of the list."""
@@ -58,16 +69,12 @@ class LinkedList:
         if current:
             prev.next = current.next
 
-    def print(self):
-        """Print the list."""
-        print(str(self))
-
     def __str__(self):
         """Returns a string representation of the linked list"""
         result = ""
         current = self.head
         while current:
-            result += current.data + " -> "
+            result += str(current.data) + " -> "
             current = current.next
         return result
 

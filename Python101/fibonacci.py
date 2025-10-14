@@ -1,5 +1,5 @@
 '''
-    The Fibonacci numbers, commonly denoted F(n) form a sequence, called the Fibonacci sequence,
+    The Fibonacci numbers, commonly denoted 'F(n)' form a sequence, called the Fibonacci sequence,
     such that each number is the sum of the two preceding ones, starting from 0 and 1.
     That is,
         F(0) = 0, F(1) = 1
@@ -10,14 +10,14 @@
 
 
 def fibonacci_nth_iterative(n: int) -> int:
-    '''
+    """
     Function: fibonacci_nth_iterative(n)
         Returns the nth number in the Fibonacci sequence.
         Iterative implementation.
         Fibonacci number definition:
             F(0) = 0, F(1) = 1,
             F(n) = F(n - 1) + F(n - 2), for n > 1.
-    '''
+    """
     if n < 0:
         raise ValueError("Number must be equal to or greater than 0")
     if n <= 1:
@@ -30,14 +30,14 @@ def fibonacci_nth_iterative(n: int) -> int:
 
 
 def fibonacci_nth_recursive(n: int) -> int:
-    '''
+    """
     Function: fibonacci_nth_recursive(n)
         Returns the nth number in the Fibonacci sequence.
         Recursive implementation.
         Fibonacci number definition:
             F(0) = 0, F(1) = 1,
             F(n) = F(n - 1) + F(n - 2), for n > 1.
-    '''
+    """
     if n < 0:
         raise ValueError("Number must be a positive integer")
     if n <= 1:
@@ -46,7 +46,7 @@ def fibonacci_nth_recursive(n: int) -> int:
 
 
 def fibonacci_nth_recursive_with_memoization(n: int, memo={}) -> int:
-    '''
+    """
     Function: fibonacci_nth_recursive(n)
         Returns the nth number in the Fibonacci sequence.
         Recursive implementation with memoization.
@@ -54,7 +54,7 @@ def fibonacci_nth_recursive_with_memoization(n: int, memo={}) -> int:
         Fibonacci number definition:
             F(0) = 0, F(1) = 1,
             F(n) = F(n - 1) + F(n - 2), for n > 1.
-    '''
+    """
     if n < 0:
         raise ValueError("Number must be equal to or greater than 0")
     if n in memo:
@@ -66,7 +66,7 @@ def fibonacci_nth_recursive_with_memoization(n: int, memo={}) -> int:
 
 
 def fibonacci_sequence(n: int) -> str:
-    '''
+    """
     Function: fibonacci_sequence(n)
         Returns a string representing a list of the Fibonacci numbers from F(0) up to F(n).
         Fibonacci number definition:
@@ -78,7 +78,7 @@ def fibonacci_sequence(n: int) -> str:
             fibonacci_sequence(2) = "0, 1, 1"
             fibonacci_sequence(5) = "0, 1, 1, 2, 3, 5"
             fibonacci_sequence(10) = "0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55"
-    '''
+    """
     if n < 0:
         raise ValueError("Number must be equal to or greater than 0")
     sequence = ""

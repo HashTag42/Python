@@ -99,26 +99,26 @@ class LinkedList_delete_tests(unittest.TestCase):
         self.assertEqual(str(ll), "A -> ")
 
 
-class LinkedList_display_tests(unittest.TestCase):
+class LinkedList_print_tests(unittest.TestCase):
     @patch("builtins.print")
-    def test_LinkedList_display_with_no_nodes(self, mock_print):
+    def test_LinkedList_print_with_no_nodes(self, mock_print):
         ll = LinkedList()   # Empty list
-        ll.display()
+        ll.print()
         mock_print.assert_called_with("")
 
     @patch("builtins.print")
-    def test_LinkedList_display_with_one_node(self, mock_print):
+    def test_LinkedList_print_with_one_node(self, mock_print):
         ll = LinkedList()
         ll.append("A")
-        ll.display()
+        ll.print()
         mock_print.assert_called_with("A -> ")
 
     @patch("builtins.print")
-    def test_LinkedList_display_with_two_nodes(self, mock_print):
+    def test_LinkedList_print_with_two_nodes(self, mock_print):
         ll = LinkedList()
         ll.append("A")
         ll.append("B")
-        ll.display()
+        ll.print()
         mock_print.assert_called_with("A -> B -> ")
 
 

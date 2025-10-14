@@ -58,7 +58,7 @@ class LinkedList:
         if current:
             prev.next = current.next
 
-    def display(self):
+    def print(self):
         """Print the list."""
         print(str(self))
 

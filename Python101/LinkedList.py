@@ -51,23 +51,21 @@ class LinkedList(Generic[T]):
         return False
 
     def delete(self, data: T) -> bool:
-        """ Deletes the first node with the given value """
+        """ Deletes the first node with the given value. Returns True if deleted, False if not found. """
         current = self.head
-        if current and current.data == data:
-            self.head = current.next
-            return True
-
         prev = None
-        while current and current.data != data:
+
+        while current:
+            if current.data == data:
+                if prev:
+                    prev.next = current.next
+                else:
+                    self.head = current.next
+                return True
             prev = current
             current = current.next
 
-        if current and prev:
-            prev.next = current.next
-        else:
-            return False
-
-        return True
+        return False
 
     def to_list(self) -> List[T]:
         """ Returns a list with the values from the LinkedList """

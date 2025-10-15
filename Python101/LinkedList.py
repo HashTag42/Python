@@ -1,3 +1,7 @@
+'''
+    The LinkedList class implements a singly linked list.
+'''
+
 from typing import List, Optional, TypeVar, Generic
 T = TypeVar("T")
 

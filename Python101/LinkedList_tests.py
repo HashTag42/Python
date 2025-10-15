@@ -44,6 +44,13 @@ class LinkedList__append__from_list_tests(unittest.TestCase):
         ll.append_from_list(["A", "B", "C"])
         self.assertEqual(ll.to_list(), ["A", "B", "C"])
 
+    def test_LinkedList__append_from_list__with_preexisting_nodes(self):
+        ll = LinkedList()
+        ll.append("A")
+        ll.append("B")
+        ll.append_from_list(["C", "D"])
+        self.assertEqual(ll.to_list(), ["A", "B", "C", "D"])
+
 
 class LinkedList__prepend__tests(unittest.TestCase):
     def test_LinkedList__prepend__no_nodes(self):

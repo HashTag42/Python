@@ -200,3 +200,25 @@ class LinkedList__iter__tests(unittest.TestCase):
         for x in ll:
             items.append(x)
         self.assertEqual(items, ["A", "B", "C"])
+
+
+class LinkedList__sorted__tests(unittest.TestCase):
+    def test_LinkedList__sort__empty_list(self):
+        ll = LinkedList()
+        ll.append_from_list([])
+        self.assertEqual(sorted(ll), [])
+
+    def test_LinkedList__sorted__one_node(self):
+        ll = LinkedList()
+        ll.append_from_list(["A"])
+        self.assertEqual(sorted(ll), ["A"])
+
+    def test_LinkedList__sorted__three_nodes_reversed(self):
+        ll = LinkedList()
+        ll.append_from_list(["C", "B", "A"])
+        self.assertEqual(sorted(ll), ["A", "B", "C"])
+
+    def test_LinkedList__sorted__three_nodes_presorted(self):
+        ll = LinkedList()
+        ll.append_from_list(["A", "B", "C"])
+        self.assertEqual(sorted(ll), ["A", "B", "C"])

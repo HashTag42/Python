@@ -7,6 +7,14 @@ class LinkedList__init__tests(unittest.TestCase):
         ll = LinkedList()
         self.assertTrue(isinstance(ll, LinkedList))
 
+    def test_LinkedList__init__with_list(self):
+        ll = LinkedList([1, 2, 3])
+        self.assertEqual(ll.to_list(), [1, 2, 3])
+
+    def test_LinkedList__init__with_empty_list(self):
+        ll = LinkedList([])
+        self.assertEqual(ll.to_list(), [])
+
 
 class LinkedList__append__tests(unittest.TestCase):
     def test_LinkedList__append__one_node(self):
@@ -28,7 +36,7 @@ class LinkedList__append__tests(unittest.TestCase):
         self.assertEqual(ll.to_list(), ["A", "A"])
 
 
-class LinkedList__append__from_list_tests(unittest.TestCase):
+class LinkedList__append_from_list__tests(unittest.TestCase):
     def test_LinkedList__append_from_list__None(self):
         ll = LinkedList()
         ll.append_from_list(None)

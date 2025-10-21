@@ -13,9 +13,11 @@ class Node(Generic[T]):
 
 
 class LinkedList(Generic[T]):
-    def __init__(self) -> None:
-        """ Creates an empty LinkedList """
+    def __init__(self, nodes: Optional[List[T]] = None) -> None:
+        """ Creates a LinkedList, optionally initialized from a list of nodes """
         self.head = None
+        if nodes:
+            self.append_from_list(nodes)
 
     def append(self, data: T) -> None:
         """ Adds a node to the end of the list """

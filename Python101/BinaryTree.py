@@ -1,4 +1,4 @@
-class Node:
+class BinaryTreeNode:
     def __init__(self, value):
         self.value = value
         self.left = None
@@ -12,7 +12,7 @@ class BinaryTree:
     def insert(self, value):
         """Insert a value into the tree (BST style)."""
         if not self.root:
-            self.root = Node(value)
+            self.root = BinaryTreeNode(value)
         else:
             self._insert_recursive(self.root, value)
 
@@ -21,12 +21,12 @@ class BinaryTree:
             if node.left:
                 self._insert_recursive(node.left, value)
             else:
-                node.left = Node(value)
+                node.left = BinaryTreeNode(value)
         else:
             if node.right:
                 self._insert_recursive(node.right, value)
             else:
-                node.right = Node(value)
+                node.right = BinaryTreeNode(value)
 
     def search(self, value):
         """Search for a value in the tree."""

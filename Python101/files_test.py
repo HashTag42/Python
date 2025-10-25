@@ -5,7 +5,7 @@ import os
 def test_file_manipulation():
     # Create a temporary file
     with tempfile.NamedTemporaryFile(suffix=".txt", delete=False) as temp_file:
-        print("Temporary file path: ", temp_file.name)
+        print("[DEBUG]", "Temporary file path: ", temp_file.name)
 
     # Write to the file
     with open(temp_file.name, 'w') as file:
@@ -13,9 +13,9 @@ def test_file_manipulation():
 
     # Read back the contents
     with open(temp_file.name, 'r') as file:
-        print("File contents: ", file.read())
+        print("[DEBUG]", "File contents: ", file.read())
 
     # Clean up manually if needed
     os.remove(temp_file.name)
 
-    assert True
+    assert os.path.exists(temp_file.name) is False

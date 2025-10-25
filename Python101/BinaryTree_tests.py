@@ -131,3 +131,23 @@ class BinaryTree__height__tests(unittest.TestCase):
         bt.insert(12)
         bt.insert(18)
         self.assertEqual(bt.height(bt.root), 3)
+
+
+class BinaryTree__levels__tests(unittest.TestCase):
+    def test_BinaryTree__levels__no_nodes(self):
+        bt = BinaryTree()
+        self.assertEqual(bt.levels(bt.root), [])
+
+    def test_BinaryTree__levels__one_node(self):
+        bt = BinaryTree()
+        bt.insert(1)
+        self.assertEqual(bt.levels(bt.root), [[1]])
+
+    def test_BinaryTree__levels__three_levels(self):
+        bt = BinaryTree()
+        bt.insert(3)
+        bt.insert(9)
+        bt.insert(20)
+        bt.insert(15)
+        bt.insert(7)
+        self.assertEqual(bt.levels(bt.root), [[3], [9], [7, 20], [15]])

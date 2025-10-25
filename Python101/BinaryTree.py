@@ -1,3 +1,6 @@
+from typing import List
+
+
 class BinaryTreeNode:
     def __init__(self, value):
         self.value = value
@@ -55,6 +58,7 @@ class BinaryTree:
             self._inorder_recursive(node.right, result)
 
     def height(self, root) -> int:
+        """Returns the height of the binary tree."""
         h = 0
         if root is None:
             h = 0
@@ -63,3 +67,26 @@ class BinaryTree:
             r_height = self.height(root.right)
             h += 1 + max(l_height, r_height)
         return h
+
+    def levels(self, root) -> List[List[int]]:
+        """Returns a list of nodes grouped by levels starting from the top"""
+        levels = []
+        if not root:
+            return levels
+
+        def helper(node: BinaryTreeNode, level: int) -> None:
+            # start the current level
+            if len(levels) == level:
+                levels.append([])
+
+            # append the current node value
+            levels[level].append(node.value)
+
+            # process child nodes for the next level
+            if node.left:
+                helper(node.left, level + 1)
+            if node.right:
+                helper(node.right, level + 1)
+
+        helper(root, 0)
+        return levels

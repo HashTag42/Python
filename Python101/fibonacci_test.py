@@ -1,5 +1,4 @@
-import unittest
-
+import pytest
 from fibonacci import (
     fibonacci_nth_iterative,
     fibonacci_nth_recursive,
@@ -8,110 +7,68 @@ from fibonacci import (
 )
 
 
-class fibonacci_nth_iterative_Tests(unittest.TestCase):
-    def test_fibonacci_nth_iterative_0(self):
-        self.assertEqual(fibonacci_nth_iterative(0), 0)
+fibonacci_cases = [
+    (0, 0),
+    (1, 1),
+    (2, 1),
+    (3, 2),
+    (5, 5),
+    (10, 55),
+]
 
-    def test_fibonacci_nth_iterative_1(self):
-        self.assertEqual(fibonacci_nth_iterative(1), 1)
+fibonacci_sequence_cases = [
+    (0, [0]),
+    (1, [0, 1]),
+    (2, [0, 1, 1]),
+    (5, [0, 1, 1, 2, 3, 5]),
+    (10, [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55]),
+]
 
-    def test_fibonacci_nth_iterative_2(self):
-        self.assertEqual(fibonacci_nth_iterative(2), 1)
-
-    def test_fibonacci_nth_iterative_3(self):
-        self.assertEqual(fibonacci_nth_iterative(3), 2)
-
-    def test_fibonacci_nth_iterative_5(self):
-        self.assertEqual(fibonacci_nth_iterative(5), 5)
-
-    def test_fibonacci_nth_iterative_10(self):
-        self.assertEqual(fibonacci_nth_iterative(10), 55)
-
-    def test_fibonacci_nth_iterative_Negative_raises_ValueError_exception(self):
-        with self.assertRaises(ValueError):
-            fibonacci_nth_iterative(-1)
-
-    def test_fibonacci_nth_iterative_String_raises_TypeError_exception(self):
-        with self.assertRaises(TypeError):
-            fibonacci_nth_iterative("A")
+fibonacci_exception_cases = [
+    (-1, ValueError),
+    ("A", TypeError),
+]
 
 
-class fibonacci_nth_recursive_Tests(unittest.TestCase):
-    def test_fibonacci_nth_recursive_0(self):
-        self.assertEqual(fibonacci_nth_recursive(0), 0)
-
-    def test_fibonacci_nth_recursive_1(self):
-        self.assertEqual(fibonacci_nth_recursive(1), 1)
-
-    def test_fibonacci_nth_recursive_2(self):
-        self.assertEqual(fibonacci_nth_recursive(2), 1)
-
-    def test_fibonacci_nth_recursive_3(self):
-        self.assertEqual(fibonacci_nth_recursive(3), 2)
-
-    def test_fibonacci_nth_recursive_5(self):
-        self.assertEqual(fibonacci_nth_recursive(5), 5)
-
-    def test_fibonacci_nth_recursive_10(self):
-        self.assertEqual(fibonacci_nth_recursive(10), 55)
-
-    def test_fibonacci_nth_recursive_Negative_raises_ValueError_exception(self):
-        with self.assertRaises(ValueError):
-            fibonacci_nth_recursive(-1)
-
-    def test_fibonacci_nth_recursive_String_raises_TypeError_exception(self):
-        with self.assertRaises(TypeError):
-            fibonacci_nth_recursive("A")
+@pytest.mark.parametrize("n, expected", fibonacci_cases)
+def test__fibonacci_nth_iterative__(n, expected):
+    assert expected == fibonacci_nth_iterative(n)
 
 
-class fibonacci_nth_recursive_with_memoization_Tests(unittest.TestCase):
-    def test_fibonacci_nth_recursive_with_memoization_0(self):
-        self.assertEqual(fibonacci_nth_recursive_with_memoization(0), 0)
-
-    def test_fibonacci_nth_recursive_with_memoization_1(self):
-        self.assertEqual(fibonacci_nth_recursive_with_memoization(1), 1)
-
-    def test_fibonacci_nth_recursive_with_memoization_2(self):
-        self.assertEqual(fibonacci_nth_recursive_with_memoization(2), 1)
-
-    def test_fibonacci_nth_recursive_with_memoization_3(self):
-        self.assertEqual(fibonacci_nth_recursive_with_memoization(3), 2)
-
-    def test_fibonacci_nth_recursive_with_memoization_5(self):
-        self.assertEqual(fibonacci_nth_recursive_with_memoization(5), 5)
-
-    def test_fibonacci_nth_recursive_with_memoization_10(self):
-        self.assertEqual(fibonacci_nth_recursive_with_memoization(10), 55)
-
-    def test_fibonacci_nth_recursive_with_memoization_Negative_raises_ValueError_exception(self):
-        with self.assertRaises(ValueError):
-            fibonacci_nth_recursive_with_memoization(-1)
-
-    def test_fibonacci_nth_recursive_with_memoization_String_raises_TypeError_exception(self):
-        with self.assertRaises(TypeError):
-            fibonacci_nth_recursive_with_memoization("A")
+@pytest.mark.parametrize("n, expected", fibonacci_exception_cases)
+def test__fibonacci_nth_iterative__exceptions(n, expected):
+    with pytest.raises(expected):
+        fibonacci_nth_iterative(n)
 
 
-class fibonacci_sequence_Tests(unittest.TestCase):
-    def test_fibonacci_sequence_0(self):
-        self.assertEqual(fibonacci_sequence(0), "0")
+@pytest.mark.parametrize("n, expected", fibonacci_cases)
+def test__fibonacci_nth_recursive__(n, expected):
+    assert expected == fibonacci_nth_recursive(n)
 
-    def test_fibonacci_sequence_1(self):
-        self.assertEqual(fibonacci_sequence(1), "0, 1")
 
-    def test_fibonacci_sequence_2(self):
-        self.assertEqual(fibonacci_sequence(2), "0, 1, 1")
+@pytest.mark.parametrize("n, expected", fibonacci_exception_cases)
+def test__fibonacci_nth_recursive__exceptions(n, expected):
+    with pytest.raises(expected):
+        fibonacci_nth_recursive(n)
 
-    def test_fibonacci_sequence_5(self):
-        self.assertEqual(fibonacci_sequence(5), "0, 1, 1, 2, 3, 5")
 
-    def test_fibonacci_sequence_10(self):
-        self.assertEqual(fibonacci_sequence(10), "0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55")
+@pytest.mark.parametrize("n, expected", fibonacci_cases)
+def test__fibonacci_nth_recursive_with_memoization__(n, expected):
+    assert expected == fibonacci_nth_recursive_with_memoization(n)
 
-    def test_fibonacci_sequence_Negative_raises_ValueError_exception(self):
-        with self.assertRaises(ValueError):
-            fibonacci_sequence(-1)
 
-    def test_fibonacci_sequence_String_raises_TypeError_exception(self):
-        with self.assertRaises(TypeError):
-            fibonacci_sequence("A")
+@pytest.mark.parametrize("n, expected", fibonacci_exception_cases)
+def test__fibonacci_nth_recursive_with_memoization__exceptions(n, expected):
+    with pytest.raises(expected):
+        fibonacci_nth_recursive_with_memoization(n)
+
+
+@pytest.mark.parametrize("n, expected", fibonacci_sequence_cases)
+def test__fibonacci_sequence__(n, expected):
+    assert expected == fibonacci_sequence(n)
+
+
+@pytest.mark.parametrize("n, expected", fibonacci_exception_cases)
+def test__fibonacci_sequence__exceptions(n, expected):
+    with pytest.raises(expected):
+        fibonacci_sequence(n)

@@ -7,6 +7,7 @@
     The first 10 Fibonacci numbers, from F(0) to F(9), are: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34
     Learn more at <https://en.wikipedia.org/wiki/Fibonacci_sequence>
 '''
+from typing import List
 
 
 def fibonacci_nth_iterative(n: int) -> int:
@@ -65,30 +66,23 @@ def fibonacci_nth_recursive_with_memoization(n: int, memo={}) -> int:
     return memo[n]
 
 
-def fibonacci_sequence(n: int) -> str:
-    """
-    Function: fibonacci_sequence(n)
-        Returns a string representing a list of the Fibonacci numbers from F(0) up to F(n).
-        Fibonacci number definition:
-            F(0) = 0, F(1) = 1,
-            F(n) = F(n - 1) + F(n - 2), for n > 1.
-        Examples:
-            fibonacci_sequence(0) = "0"
-            fibonacci_sequence(1) = "0, 1"
-            fibonacci_sequence(2) = "0, 1, 1"
-            fibonacci_sequence(5) = "0, 1, 1, 2, 3, 5"
-            fibonacci_sequence(10) = "0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55"
-    """
-    if n < 0:
+def fibonacci_sequence(n: int) -> List[int]:
+    """ Returns a list of  Fibonacci numbers from F(0) up to F(n). """
+    sequence = list()
+
+    if n < 0 or isinstance(n, int) is False:
         raise ValueError("Number must be equal to or greater than 0")
-    sequence = ""
+
     if n >= 0:
-        sequence += "0"
+        sequence.append(0)
+
     if n >= 1:
-        sequence += ", 1"
+        sequence.append(1)
+
     a, b = 0, 1
     for _ in range(2, n + 1):
         c = a + b
         a, b = b, c
-        sequence += ", " + str(c)
+        sequence.append(c)
+
     return sequence

@@ -30,6 +30,7 @@ fibonacci_exception_cases = [
 ]
 
 
+# fibonacci_nth_iterative(n)
 @pytest.mark.parametrize("n, expected", fibonacci_cases)
 def test__fibonacci_nth_iterative__(n, expected):
     assert expected == fibonacci_nth_iterative(n)
@@ -41,6 +42,7 @@ def test__fibonacci_nth_iterative__exceptions(n, expected):
         fibonacci_nth_iterative(n)
 
 
+# fibonacci_nth_recursive(n)
 @pytest.mark.parametrize("n, expected", fibonacci_cases)
 def test__fibonacci_nth_recursive__(n, expected):
     assert expected == fibonacci_nth_recursive(n)
@@ -52,6 +54,7 @@ def test__fibonacci_nth_recursive__exceptions(n, expected):
         fibonacci_nth_recursive(n)
 
 
+# fibonacci_nth_recursive_with_memoization(n)
 @pytest.mark.parametrize("n, expected", fibonacci_cases)
 def test__fibonacci_nth_recursive_with_memoization__(n, expected):
     assert expected == fibonacci_nth_recursive_with_memoization(n)
@@ -63,6 +66,7 @@ def test__fibonacci_nth_recursive_with_memoization__exceptions(n, expected):
         fibonacci_nth_recursive_with_memoization(n)
 
 
+# fibonacci_sequence(n)
 @pytest.mark.parametrize("n, expected", fibonacci_sequence_cases)
 def test__fibonacci_sequence__(n, expected):
     assert expected == fibonacci_sequence(n)

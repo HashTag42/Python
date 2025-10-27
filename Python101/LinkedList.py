@@ -22,14 +22,14 @@ class LinkedList(Generic[T]):
     def append(self, data: T) -> None:
         """ Adds a node to the end of the list """
         new_node = Node(data)
-        if not self.head:
-            self.head = new_node
-            return
-        else:
+        if self.head:
             current = self.head
             while current.next:
                 current = current.next
             current.next = new_node
+        else:
+            self.head = new_node
+            return
 
     def append_from_list(self, lst: Optional[List[T]]) -> None:
         """ Appends nodes with values from a list """

@@ -2,7 +2,7 @@
     The LinkedList class implements a singly linked list.
 '''
 
-from typing import List, Optional, TypeVar, Generic
+from typing import List, Optional, TypeVar, Generic, Iterator
 T = TypeVar("T")
 
 
@@ -108,9 +108,18 @@ class LinkedList(Generic[T]):
             current = current.next
         return count
 
-    def __iter__(self):
+    def __iter__(self) -> Iterator[T]:
         """ Allows iteration like: for x in linked_list """
         current = self.head
         while current:
             yield current.data
             current = current.next
+
+    def __eq__(self, other: object) -> bool:
+        """ Allows usage of the '==' equality comparison between objects """
+        cur1, cur2 = self.head, other.head
+        while cur1 and cur2:
+            if cur1.data != cur2.data:
+                return False
+            cur1, cur2 = cur1.next, cur2.next
+        return cur1 is None and cur2 is None

@@ -1,4 +1,5 @@
 import unittest
+import pytest
 from LinkedList import LinkedList
 
 
@@ -237,3 +238,24 @@ class LinkedList__sorted__tests(unittest.TestCase):
         ll = LinkedList()
         ll.append_from_list(["A", "B", "C"])
         self.assertEqual(sorted(ll), ["A", "B", "C"])
+
+
+__eq__cases = [
+    # Positive cases
+    (None, None, True),
+    ([], [], True),
+    ([1], [1], True),
+    ([1, 2, 3], [1, 2, 3], True),
+    # Negative cases
+    (None, [1], False),
+    ([], [1], False),
+    ([1], [2], False),
+    ([1], [1, 2], False),
+    ([1, 2], [1, 2, 3], False),
+    ([1, 9, 3], [1, 2, 3], False),
+]
+
+
+@pytest.mark.parametrize("list1, list2, expected", __eq__cases)
+def test_LinkedList__eq__(list1, list2, expected):
+    assert (LinkedList(list1) == LinkedList(list2)) == expected

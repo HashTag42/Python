@@ -16,20 +16,20 @@ class LinkedList(Generic[T]):
     def __init__(self, nodes: Optional[List[T]] = None) -> None:
         """ Creates a LinkedList, optionally initialized from a list of nodes """
         self.head = None
+        self.tail = None
+        self._size = 0
         if nodes:
             self.append_from_list(nodes)
 
     def append(self, data: T) -> None:
         """ Adds a node to the end of the list """
         new_node = Node(data)
-        if self.head:
-            current = self.head
-            while current.next:
-                current = current.next
-            current.next = new_node
+        if self.tail:
+            self.tail.next = new_node
         else:
             self.head = new_node
-            return
+        self.tail = new_node
+        self._size += 1
 
     def append_from_list(self, lst: Optional[List[T]]) -> None:
         """ Appends nodes with values from a list """
@@ -43,6 +43,9 @@ class LinkedList(Generic[T]):
         new_node = Node(data)
         new_node.next = self.head
         self.head = new_node
+        if self.tail is None:
+            self.tail = new_node
+        self._size += 1
 
     def insert(self, node_data: T, new_data: T) -> bool:
         """ Inserts a node after the first node with the given value """
@@ -52,6 +55,9 @@ class LinkedList(Generic[T]):
             if current.data == node_data:
                 new_node.next = current.next
                 current.next = new_node
+                if current == self.tail:
+                    self.tail = new_node
+                self._size += 1
                 return True
             current = current.next
         return False
@@ -67,6 +73,9 @@ class LinkedList(Generic[T]):
                     prev.next = current.next
                 else:
                     self.head = current.next
+                if current.next is None:
+                    self.tail = prev
+                self._size -= 1
                 return True
             prev = current
             current = current.next
@@ -80,6 +89,8 @@ class LinkedList(Generic[T]):
     def clear(self) -> None:
         """ Clears the LinkedList """
         self.head = None
+        self.tail = None
+        self._size = 0
 
     def find(self, data: T) -> Optional[Node[T]]:
         """ Returns the first node found with the data """
@@ -101,12 +112,7 @@ class LinkedList(Generic[T]):
 
     def __len__(self) -> int:
         """ Returns the number of nodes in the list """
-        count = 0
-        current = self.head
-        while current:
-            count += 1
-            current = current.next
-        return count
+        return self._size
 
     def __iter__(self) -> Iterator[T]:
         """ Allows iteration like: for x in linked_list """
@@ -117,9 +123,16 @@ class LinkedList(Generic[T]):
 
     def __eq__(self, other: object) -> bool:
         """ Allows usage of the '==' equality comparison between objects """
+        if not isinstance(other, LinkedList):
+            return NotImplemented
+
         cur1, cur2 = self.head, other.head
         while cur1 and cur2:
             if cur1.data != cur2.data:
                 return False
             cur1, cur2 = cur1.next, cur2.next
         return cur1 is None and cur2 is None
+
+    def __contains__(self, item: T) -> bool:
+        """Supports the 'in' operator"""
+        return self.find(item) is not None

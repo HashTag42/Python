@@ -240,7 +240,7 @@ class LinkedList__sorted__tests(unittest.TestCase):
         self.assertEqual(sorted(ll), ["A", "B", "C"])
 
 
-__eq__cases = [
+@pytest.mark.parametrize("list1, list2, expected", [
     # Positive cases
     (None, None, True),
     ([], [], True),
@@ -253,9 +253,20 @@ __eq__cases = [
     ([1], [1, 2], False),
     ([1, 2], [1, 2, 3], False),
     ([1, 9, 3], [1, 2, 3], False),
-]
-
-
-@pytest.mark.parametrize("list1, list2, expected", __eq__cases)
+])
 def test_LinkedList__eq__(list1, list2, expected):
     assert (LinkedList(list1) == LinkedList(list2)) == expected
+
+
+def test_LinkedList__eq__NotImplemented():
+    ll = LinkedList([1, 2, 3])
+    assert ll.__eq__("not a linked list") is NotImplemented
+
+
+@pytest.mark.parametrize("list, item, expected", [
+    ([1, 2, 3], 2, True),
+    ([], 2, False),
+    ([1, 2, 3], 4, False),
+])
+def test_LinkedList__contains__(list, item, expected):
+    assert (item in LinkedList(list)) == expected

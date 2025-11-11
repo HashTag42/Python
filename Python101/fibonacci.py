@@ -60,9 +60,7 @@ def fibonacci_sequence(n: int) -> List[int]:
     """ Returns a list of Fibonacci numbers from F(0) up to F(n). """
     if n < 0:
         raise ValueError(error_message)
-    sequence = list()
-    if n >= 0:
-        sequence.append(0)
+    sequence = [0]
     if n >= 1:
         sequence.append(1)
     a, b = 0, 1

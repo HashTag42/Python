@@ -3,7 +3,7 @@ from Stack import Stack
 
 
 ################################################################################
-# region Stack.__init__(data)
+# region Stack.__init__(nodes)
 @pytest.mark.parametrize("data, length, peek", [
     (None, 0, None),
     ([], 0, None),
@@ -19,9 +19,25 @@ def test_Stack__init__(data, length, peek):
 
 
 ################################################################################
-# region Stack.__len__
+# region Stack.__iter__()
+@pytest.mark.parametrize("values, expected", [
+    ([], []),
+    ([1], [1]),
+    ([1, 2, 3], [3, 2, 1]),
+])
+def test_Stack__iter__(values, expected):
+    stack = Stack(values)
+    items = []
+    for i in stack:
+        items.append(i)
+    assert items == expected
+# endregion
+################################################################################
+
+
+################################################################################
+# region Stack.__len__()
 @pytest.mark.parametrize("data, expected", [
-    # data, expected
     (None, 0),
     ([], 0),
     ([1], 1),
@@ -37,7 +53,6 @@ def test_Stack__len__(data, expected):
 ################################################################################
 # region Stack.is_empty()
 @pytest.mark.parametrize("data, expected", [
-    # data, expected
     (None, True),
     ([], True),
     ([1], False),
@@ -71,7 +86,6 @@ def test_Stack_peek(data, peek):
 ################################################################################
 # region Stack.pop()
 @pytest.mark.parametrize("data, pop_count, pop_values, length, peek", [
-    # data, pops, pop_values, length, peek
     ([], 1, [None], 0, None),
     ([], 2, [None, None], 0, None),
     (["A"], 1, ["A"], 0, None),
@@ -93,7 +107,6 @@ def test_Stack_pop(data, pop_count, pop_values, length, peek):
 ################################################################################
 # region Stack.push(data)
 @pytest.mark.parametrize("data, length, peek", [
-    # data, length, peek
     ([], 0, None),
     (["A"], 1, "A"),
     (["A", "B"], 2, "B"),
@@ -112,7 +125,6 @@ def test_Stack_push(data, length, peek):
 ################################################################################
 # region Stack.push_from_list(list)
 @pytest.mark.parametrize("data, length, peek", [
-    # data, length, peek
     (None, 0, None),
     ([], 0, None),
     (["A"], 1, "A"),

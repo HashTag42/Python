@@ -80,13 +80,38 @@ def test_Stack_min(nodes, expected):
     assert stack.min() == expected
 
 
-def test_Stack_min_multiple_operations():
+def test_Stack_min_multiple_operations_1():
     stack = Stack([2, 1, 0])
     assert stack.peek() == 0
     assert stack.min() == 0
     stack.pop()
     assert stack.peek() == 1
     assert stack.min() == 1
+
+
+def test_Stack_min_multiple_operations_2():
+    stack = Stack()
+    assert stack.min() is None
+    stack.push(5)
+    assert stack.min() == 5
+    stack.push(6)
+    assert stack.min() == 5
+    stack.push(3)
+    assert stack.min() == 3
+    stack.push(7)
+    assert stack.min() == 3
+    stack.push(3)
+    assert stack.min() == 3
+    stack.pop()
+    assert stack.min() == 3
+    stack.pop()
+    assert stack.min() == 3
+    stack.pop()
+    assert stack.min() == 5
+    stack.pop()
+    assert stack.min() == 5
+    stack.pop()
+    assert stack.min() is None
 # endregion
 ################################################################################
 

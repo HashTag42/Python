@@ -45,6 +45,8 @@ class Stack(Generic[T]):
             return None
         pop_value = self.head.data
         self.head = self.head.next
+        if self.is_empty():
+            self.head._sub_min = None
         self._size -= 1
         return pop_value
 

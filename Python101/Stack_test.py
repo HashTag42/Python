@@ -66,6 +66,32 @@ def test_Stack_is_empty(data, expected):
 
 
 ################################################################################
+# region Stack_min()
+@pytest.mark.parametrize("nodes, expected", [
+    (None,  None),
+    ([], None),
+    ([2, 1, 3], 1),
+    ([2, 1, 0], 0),
+    ([-2, -1, 0], -2),
+    (["A", "B", "C"], "A"),
+])
+def test_Stack_min(nodes, expected):
+    stack = Stack(nodes)
+    assert stack.min() == expected
+
+
+def test_Stack_min_multiple_operations():
+    stack = Stack([2, 1, 0])
+    assert stack.peek() == 0
+    assert stack.min() == 0
+    stack.pop()
+    assert stack.peek() == 1
+    assert stack.min() == 1
+# endregion
+################################################################################
+
+
+################################################################################
 # region Stack.peek()
 @pytest.mark.parametrize("data, peek", [
     # data, peek

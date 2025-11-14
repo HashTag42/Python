@@ -11,6 +11,7 @@ T = TypeVar("T")
 class StackNode(Generic[T]):
     def __init__(self, data: T):
         self.data: T = data
+        self._sub_min: int = data
         self.next: Optional[StackNode[T]] = None
 
 
@@ -26,6 +27,8 @@ class Stack(Generic[T]):
         """Add an item at the top of the stack"""
         new_node = StackNode(data)
         new_node.next = self.head
+        if self.head:
+            new_node._sub_min = min(new_node.data, self.head._sub_min)
         self.head = new_node
         self._size += 1
 
@@ -38,7 +41,7 @@ class Stack(Generic[T]):
 
     def pop(self) -> Optional[T]:
         """Remove and return the data at the top of the stack, or None if empty"""
-        if self._size == 0:
+        if self.is_empty():
             return None
         pop_value = self.head.data
         self.head = self.head.next
@@ -55,6 +58,10 @@ class Stack(Generic[T]):
     def is_empty(self) -> bool:
         """Return true if and only if the stack is empty"""
         return self._size == 0
+
+    def min(self) -> int:
+        """Return the minimum eledment in the stack"""
+        return self.head._sub_min if self.head else None
 
     def __len__(self) -> int:
         """Return the number of nodes in the stack"""

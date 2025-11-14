@@ -6,9 +6,13 @@
         "-p",
         "*_test.py"
     ],
+    "python.testing.pytestArgs": [
+        ".",  // or your test folder
+        "--cov=.",
+        "--cov-branch",
+        "--cov-report=term-missing",
+        "--cov-config=.coveragerc"
+    ],
     "python.testing.pytestEnabled": true,
     "python.testing.unittestEnabled": false,
-    "python.testing.pytestArgs": [
-        "."
-    ]
 }

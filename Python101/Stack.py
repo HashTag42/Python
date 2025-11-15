@@ -45,9 +45,9 @@ class Stack(Generic[T]):
             return None
         pop_value = self.head.data
         self.head = self.head.next
-        if self.is_empty():
-            self.head._sub_min = None
         self._size -= 1
+        if self.head and self.head.next:
+            self.head._sub_min = min(self.head._sub_min, self.head.next._sub_min)
         return pop_value
 
     def peek(self) -> Optional[T]:

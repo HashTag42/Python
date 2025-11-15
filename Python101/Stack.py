@@ -85,5 +85,11 @@ class Stack(Generic[T]):
         while current:
             yield current.data
             current = current.next
+
+    def __str__(self) -> str:
+        lst = list()
+        for item in self:
+            lst.append(item)
+        return f"Stack(->{lst})"
     # endregion
     ################################################################################

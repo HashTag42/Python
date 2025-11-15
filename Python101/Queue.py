@@ -15,6 +15,8 @@ class QueueNode(Generic[T]):
 
 
 class Queue(Generic[T]):
+    ################################################################################
+    # region CONSTRUCTOR
     def __init__(self, items: Optional[Iterable[T]] = None) -> None:
         """Initializes a queue object. Optionally populates it with an iterable of items."""
         self.head: Optional[QueueNode[T]] = None
@@ -22,7 +24,11 @@ class Queue(Generic[T]):
         self._size: int = 0
         if items is not None:
             self._add_from_iterable(items)
+    # endregion
+    ################################################################################
 
+    ################################################################################
+    # region PUBLIC INTERFACE
     def add(self, data: T) -> None:
         """Add an item to the end of the queue"""
         new_node = QueueNode(data)
@@ -65,17 +71,25 @@ class Queue(Generic[T]):
         else:
             raise IndexError("remove from empty queue")
 
-    def to_list(self) -> List[T]:
-        return list(self)
-
     # Alias for remove (standard queue terminology)
     dequeue = remove
 
+    def to_list(self) -> List[T]:
+        return list(self)
+    # endregion
+    ################################################################################
+
+    ################################################################################
+    # region PRIVATE INTERFACE
     def _add_from_iterable(self, values: Iterable[T]) -> None:
         """Add items to the queue using values from an iterable"""
         for val in values:
             self.add(val)
+    # endregion
+    ################################################################################
 
+    ################################################################################
+    # region DUNDER METHODS
     def __bool__(self) -> bool:
         """Return True if the queue is not empty, False otherwise"""
         return not self.is_empty()
@@ -113,3 +127,5 @@ class Queue(Generic[T]):
         if self.is_empty():
             return "Queue(empty)"
         return f"Queue([{' <- '.join(str(item) for item in self)}])"
+    # endregion
+    ################################################################################

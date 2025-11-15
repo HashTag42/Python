@@ -80,7 +80,7 @@ class Queue(Generic[T]):
     ################################################################################
 
     ################################################################################
-    # region PRIVATE INTERFACE
+    # region INTERNAL INTERFACE
     def _add_from_iterable(self, values: Iterable[T]) -> None:
         """Add items to the queue using values from an iterable"""
         for val in values:

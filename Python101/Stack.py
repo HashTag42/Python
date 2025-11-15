@@ -16,13 +16,19 @@ class StackNode(Generic[T]):
 
 
 class Stack(Generic[T]):
+    ################################################################################
+    # region CONSTRUCTOR
     def __init__(self, nodes: Optional[List[T]] = None) -> None:
         """Initializes a Stack object. Optionally populates it with a list of items."""
         self.head = None
         self._size = 0
         if nodes:
             self.push_from_list(nodes)
+    # endregion
+    ################################################################################
 
+    ################################################################################
+    # region PUBLIC INTERFACE
     def push(self, data: T) -> None:
         """Add an item at the top of the stack"""
         new_node = StackNode(data)
@@ -64,7 +70,11 @@ class Stack(Generic[T]):
     def min(self) -> int:
         """Return the minimum eledment in the stack"""
         return self.head._sub_min if self.head else None
+    # endregion
+    ################################################################################
 
+    ################################################################################
+    # region DUNDER METHODS
     def __len__(self) -> int:
         """Return the number of nodes in the stack"""
         return self._size
@@ -75,3 +85,5 @@ class Stack(Generic[T]):
         while current:
             yield current.data
             current = current.next
+    # endregion
+    ################################################################################

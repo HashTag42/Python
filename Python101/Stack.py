@@ -70,6 +70,10 @@ class Stack(Generic[T]):
     def min(self) -> int:
         """Return the minimum eledment in the stack"""
         return self.head._sub_min if self.head else None
+
+    def clear(self) -> None:
+        self.head = None
+        self._size = 0
     # endregion
     ################################################################################
 

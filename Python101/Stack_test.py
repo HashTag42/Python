@@ -66,6 +66,16 @@ def test_Stack__str__(data, expected):
 
 
 ################################################################################
+# region Stack.clear()
+def test_Stack_clear():
+    s = Stack([1, 2, 3])
+    s.clear()
+    assert len(s) == 0
+# endregion
+################################################################################
+
+
+################################################################################
 # region Stack.is_empty()
 @pytest.mark.parametrize("data, expected", [
     (None, True),

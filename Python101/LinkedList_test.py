@@ -1,6 +1,6 @@
+from LinkedList import LinkedList
 import unittest
 import pytest
-from LinkedList import LinkedList
 
 
 class LinkedList__init__tests(unittest.TestCase):
@@ -264,9 +264,23 @@ def test_LinkedList__eq__NotImplemented():
 
 
 @pytest.mark.parametrize("list, item, expected", [
-    ([1, 2, 3], 2, True),
     ([], 2, False),
+    ([1, 2, 3], 2, True),
     ([1, 2, 3], 4, False),
 ])
 def test_LinkedList__contains__(list, item, expected):
     assert (item in LinkedList(list)) == expected
+
+
+@pytest.mark.parametrize("list, expected_popped_data, expected_str", [
+    ([], None, ""),
+    ([1], 1, ""),
+    ([1, 2], 1, "2"),
+    ([1, 2, 3], 1, "2 -> 3"),
+])
+def test_LinkedList_pop_head(list, expected_popped_data, expected_str):
+    ll = LinkedList(list)
+    popped = ll.pop_head()
+    if popped is not None:
+        assert popped.data == expected_popped_data
+    assert str(ll) == expected_str

@@ -7,12 +7,18 @@ T = TypeVar("T")
 
 
 class Node(Generic[T]):
+    ################################################################################
+    # region CONSTRUCTOR
     def __init__(self, data: T):
         self.data: T = data  # value of the node
         self.next: Optional[Node[T]] = None  # pointer to the next node
+    # endregion
+    ################################################################################
 
 
 class LinkedList(Generic[T]):
+    ################################################################################
+    # region CONSTRUCTOR
     def __init__(self, nodes: Optional[List[T]] = None) -> None:
         """ Creates a LinkedList, optionally initialized from a list of nodes """
         self.head = None
@@ -20,7 +26,11 @@ class LinkedList(Generic[T]):
         self._size = 0
         if nodes:
             self.append_from_list(nodes)
+    # endregion
+    ################################################################################
 
+    ################################################################################
+    # region PUBLIC INTERFACE
     def append(self, data: T) -> None:
         """ Adds a node to the end of the list """
         new_node = Node(data)
@@ -101,6 +111,19 @@ class LinkedList(Generic[T]):
             current = current.next
         return None
 
+    def pop_head(self) -> Optional[Node[T]]:
+        """Delete and return the first node in the list"""
+        popped: Node = self.head
+        if self.head and self.head.next:
+            self.head = self.head.next
+        elif self.head:
+            self.head = None
+        return popped
+    # endregion
+    ################################################################################
+
+    ################################################################################
+    # region DUNDER METHODS
     def __str__(self) -> str:
         """ Returns a string representation of the linked list """
         values = []
@@ -136,3 +159,5 @@ class LinkedList(Generic[T]):
     def __contains__(self, item: T) -> bool:
         """Supports the 'in' operator"""
         return self.find(item) is not None
+    # endregion
+    ################################################################################

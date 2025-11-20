@@ -76,7 +76,6 @@ class LinkedList(Generic[T]):
         """ Deletes the first node with the given value. Returns True if deleted, False if not found. """
         current = self.head
         prev = None
-
         while current:
             if current.data == data:
                 if prev:
@@ -89,7 +88,6 @@ class LinkedList(Generic[T]):
                 return True
             prev = current
             current = current.next
-
         return False
 
     def to_list(self) -> List[T]:

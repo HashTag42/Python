@@ -1,0 +1,43 @@
+'''
+Implements a graph node object.
+'''
+from typing import Generic, List, TypeVar
+T = TypeVar("T")
+
+
+class GraphNode(Generic[T]):
+    ################################################################################
+    # region CONSTRUCTOR
+    def __init__(self, value: T) -> None:
+        self.value: T = value
+        self.nodes: List[GraphNode] = []
+    # endregion
+    ################################################################################
+
+    ################################################################################
+    # region PUBLIC INTERFACE
+    def add_node(self, node: "GraphNode") -> None:
+        if node not in self.nodes:
+            self.nodes.append(node)
+
+    def get_nodes(self):
+        return self.nodes
+
+    def remove_node(self, node: "GraphNode") -> None:
+        if node in self.nodes:
+            self.nodes.remove(node)
+    # endregion
+    ################################################################################
+
+    ################################################################################
+    # region DUNDER METHODS
+    def __eq__(self, other: object) -> bool:
+        return isinstance(other, GraphNode) and self.value == other.value
+
+    def __hash__(self) -> int:
+        return hash(self.value)
+
+    def __repr__(self) -> str:
+        return f"GraphNode({self.value}, nodes={self.get_nodes()})"
+    # endregion
+    ################################################################################

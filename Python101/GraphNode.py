@@ -34,6 +34,9 @@ class GraphNode(Generic[T]):
     def __eq__(self, other: object) -> bool:
         return isinstance(other, GraphNode) and self.value == other.value
 
+    def __format__(self, format_spec) -> str:
+        return format(str(self.value), format_spec)
+
     def __hash__(self) -> int:
         return hash(self.value)
 

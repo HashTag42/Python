@@ -116,7 +116,7 @@ def test_GraphNode__repr__():
     assert repr(gn1) == "GraphNode(1, nodes=[])"
 
 
-def test_GraphNode__repr__one_node():
+def test_GraphNode__repr__one_neighbor():
     gn1 = GraphNode(1)
     gn2 = GraphNode(2)
     gn1.add_neighbor(gn2)

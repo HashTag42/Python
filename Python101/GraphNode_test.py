@@ -11,54 +11,54 @@ def test_GraphNode__init__():
 
 
 ################################################################################
-# region GraphNode.add_node()
-def test_GraphNode_add_node():
+# region GraphNode.add_neighbor()
+def test_GraphNode_add_neighbor():
     gn1 = GraphNode(1)
     gn2 = GraphNode(2)
-    gn1.add_node(gn2)
-    assert gn1.get_nodes() == [gn2]
+    gn1.add_neighbor(gn2)
+    assert gn1.get_neighbors() == [gn2]
 
 
-def test_GraphNode_add_node_twice():
+def test_GraphNode_add_neighbor_twice():
     gn1 = GraphNode(1)
     gn2 = GraphNode(2)
-    gn1.add_node(gn2)
-    gn1.add_node(gn2)
-    assert gn1.get_nodes() == [gn2]
+    gn1.add_neighbor(gn2)
+    gn1.add_neighbor(gn2)
+    assert gn1.get_neighbors() == [gn2]
 # endregion
 ################################################################################
 
 
 ################################################################################
-# region GraphNode.get_nodes()
-def test_GraphNode_get_nodes():
+# region GraphNode.get_neighbors()
+def test_GraphNode_get_neighbors():
     gn1 = GraphNode(1)
     gn2 = GraphNode(2)
     gn3 = GraphNode(3)
-    gn1.add_node(gn2)
-    gn1.add_node(gn3)
-    assert gn1.get_nodes() == [gn2, gn3]
+    gn1.add_neighbor(gn2)
+    gn1.add_neighbor(gn3)
+    assert gn1.get_neighbors() == [gn2, gn3]
 # endregion
 ################################################################################
 
 
 ################################################################################
-# region GraphNode.remove_node()
-def test_GraphNode_remove_node():
+# region GraphNode.remove_neighbor()
+def test_GraphNode_remove_neighbor():
     gn1 = GraphNode(1)
     gn2 = GraphNode(2)
-    gn1.add_node(gn2)
-    gn1.remove_node(gn2)
-    assert gn1.get_nodes() == []
+    gn1.add_neighbor(gn2)
+    gn1.remove_neighbor(gn2)
+    assert gn1.get_neighbors() == []
 
 
-def test_GraphNode_remove_node_twice():
+def test_GraphNode_remove_neighbor_twice():
     gn1 = GraphNode(1)
     gn2 = GraphNode(2)
-    gn1.add_node(gn2)
-    gn1.remove_node(gn2)
-    gn1.remove_node(gn2)
-    assert gn1.get_nodes() == []
+    gn1.add_neighbor(gn2)
+    gn1.remove_neighbor(gn2)
+    gn1.remove_neighbor(gn2)
+    assert gn1.get_neighbors() == []
 # endregion
 ################################################################################
 
@@ -103,7 +103,7 @@ def test_GraphNode__repr__():
 def test_GraphNode__repr__one_node():
     gn1 = GraphNode(1)
     gn2 = GraphNode(2)
-    gn1.add_node(gn2)
+    gn1.add_neighbor(gn2)
     assert repr(gn1) == "GraphNode(1, nodes=[GraphNode(2, nodes=[])])"
 # endregion
 ################################################################################

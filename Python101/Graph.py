@@ -25,9 +25,9 @@ class Graph(Generic[T]):
 
     def add_edge(self, node1: GraphNode, node2: GraphNode) -> None:
         """Add an edge between two nodes"""
-        node1.add_node(node2)
+        node1.add_neighbor(node2)
         if not self.directed:
-            node2.add_node(node1)
+            node2.add_neighbor(node1)
 
     def find_node(self, value: T) -> Optional[GraphNode]:
         """Find a node by its value"""
@@ -38,9 +38,9 @@ class Graph(Generic[T]):
 
     def remove_edge(self, node1: GraphNode, node2: GraphNode) -> None:
         """Remove an edge between two nodes"""
-        node1.remove_node(node2)
+        node1.remove_neighbor(node2)
         if not self.directed:
-            node2.remove_node(node1)
+            node2.remove_neighbor(node1)
     # endregion
     ################################################################################
 

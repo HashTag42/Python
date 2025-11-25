@@ -16,14 +16,14 @@ class GraphNode(Generic[T]):
 
     ################################################################################
     # region PUBLIC INTERFACE
-    def add_node(self, node: "GraphNode") -> None:
+    def add_neighbor(self, node: "GraphNode") -> None:
         if node not in self.nodes:
             self.nodes.append(node)
 
-    def get_nodes(self):
+    def get_neighbors(self):
         return self.nodes
 
-    def remove_node(self, node: "GraphNode") -> None:
+    def remove_neighbor(self, node: "GraphNode") -> None:
         if node in self.nodes:
             self.nodes.remove(node)
     # endregion
@@ -38,6 +38,6 @@ class GraphNode(Generic[T]):
         return hash(self.value)
 
     def __repr__(self) -> str:
-        return f"GraphNode({self.value}, nodes={self.get_nodes()})"
+        return f"GraphNode({self.value}, nodes={self.get_neighbors()})"
     # endregion
     ################################################################################

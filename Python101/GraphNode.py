@@ -37,6 +37,9 @@ class GraphNode(Generic[T]):
     def __hash__(self) -> int:
         return hash(self.value)
 
+    def __lt__(self, other: object) -> bool:
+        return isinstance(other, GraphNode) and self.value < other.value
+
     def __repr__(self) -> str:
         return f"GraphNode({self.value}, nodes={self.get_neighbors()})"
     # endregion

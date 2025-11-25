@@ -85,6 +85,22 @@ def test_GraphNode__eq__no_GraphNode():
 
 
 ################################################################################
+# region GraphNode.__lt__()
+def test_GraphNode__lt__True():
+    gn1 = GraphNode(1)
+    gn2 = GraphNode(2)
+    assert (gn1 < gn2) is True
+
+
+def test_GraphNode__lt__False():
+    gn1 = GraphNode(1)
+    gn2 = GraphNode(2)
+    assert (gn2 < gn1) is False
+# endregion
+################################################################################
+
+
+################################################################################
 # region GraphNode.__hash__()
 def test_GraphNode__hash__():
     gn1 = GraphNode("A")

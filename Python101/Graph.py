@@ -13,21 +13,26 @@ class Graph(Generic[T]):
         """Initializes a graph object"""
         self.nodes: List[GraphNode] = []
         self.directed = directed
+        self.matrix = {}
     # endregion
     ################################################################################
 
     ################################################################################
     # region PUBLIC INTERFACE
+    def add_edge(self, from_node: GraphNode, to_node: GraphNode, weight=1) -> None:
+        """Add an edge between two nodes"""
+        self.add_node(from_node)
+        self.add_node(to_node)
+        from_node.add_neighbor(to_node)
+        self.matrix[from_node][to_node] = weight
+        if not self.directed:
+            to_node.add_neighbor(from_node)
+
     def add_node(self, node: GraphNode) -> None:
         """Add a new node to the graph"""
         if node not in self.nodes:
             self.nodes.append(node)
-
-    def add_edge(self, node1: GraphNode, node2: GraphNode) -> None:
-        """Add an edge between two nodes"""
-        node1.add_neighbor(node2)
-        if not self.directed:
-            node2.add_neighbor(node1)
+            self.matrix[node] = {}
 
     def find_node(self, value: T) -> Optional[GraphNode]:
         """Find a node by its value"""
@@ -36,11 +41,36 @@ class Graph(Generic[T]):
                 return node
         return None
 
-    def remove_edge(self, node1: GraphNode, node2: GraphNode) -> None:
+    def get_weight(self, from_node, to_node) -> int:
+        """Get edge weight, return 0 if no edge"""
+        if self.has_edge(from_node, to_node):
+            return self.matrix[from_node][to_node]
+        return 0
+
+    def has_edge(self, from_node, to_node) -> bool:
+        """Check if an edge exists"""
+        return from_node in self.matrix and to_node in self.matrix[from_node]
+
+    def print_matrix(self) -> str:
+        """Return a str representation of the adjacency matrix"""
+        result = ""
+        nodes = sorted(self.nodes)
+        result += "    " + " ".join(f"{n.value:3}" for n in nodes) + "\n"
+        for from_node in nodes:
+            row = [self.get_weight(from_node, to_node) for to_node in nodes]
+            result += f"{from_node:3}: {row}\n"
+        print(result)
+
+    def remove_edge(self, from_node: GraphNode, to_node: GraphNode) -> None:
         """Remove an edge between two nodes"""
-        node1.remove_neighbor(node2)
-        if not self.directed:
-            node2.remove_neighbor(node1)
+        from_node.remove_neighbor(to_node)
+        if (from_node in self.matrix
+                and to_node in self.matrix[from_node]):
+            del self.matrix[from_node][to_node]
+        if (not self.directed
+                and to_node in self.matrix
+                and from_node in self.matrix[to_node]):
+            to_node.remove_neighbor(from_node)
     # endregion
     ################################################################################
 

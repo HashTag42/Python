@@ -2,7 +2,10 @@ import unittest
 import urllib.request
 
 
+url = "https://example.com"
+
+
 class Internet_Tests(unittest.TestCase):
     def test_urlopen(self):
-        webUrl = urllib.request.urlopen("http://www.google.com")
-        self.assertEqual(webUrl.getcode(), 200)
+        with urllib.request.urlopen(url) as response:
+            self.assertEqual(response.getcode(), 200)

@@ -1,4 +1,4 @@
-from GraphNode import GraphNode
+from GraphNode import GraphNode, NodeState
 import pytest
 
 
@@ -39,6 +39,41 @@ def test_GraphNode_get_neighbors():
     gn1.add_neighbor(gn2)
     gn1.add_neighbor(gn3)
     assert gn1.get_neighbors() == [gn2, gn3]
+# endregion
+################################################################################
+
+
+################################################################################
+# region GraphNode.is_visited()
+def test_GraphNode_is_visited_True():
+    gn = GraphNode(1)
+    gn.mark_visited()
+    assert gn.is_visited() is True
+
+
+def test_GraphNode_is_visited_False():
+    gn = GraphNode(1)
+    assert gn.is_visited() is False
+# endregion
+################################################################################
+
+
+################################################################################
+# region GraphNode.mark_visited()
+def test_GraphNode_mark_visited():
+    gn = GraphNode(1)
+    gn.mark_visited()
+    assert gn.state == NodeState.VISITED
+# endregion
+################################################################################
+
+
+################################################################################
+# region GraphNode.mark_visited()
+def test_GraphNode_mark_visiting():
+    gn = GraphNode(1)
+    gn.mark_visiting()
+    assert gn.state == NodeState.VISITING
 # endregion
 ################################################################################
 

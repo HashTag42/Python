@@ -2,7 +2,14 @@
 Implements a graph node object.
 '''
 from typing import Generic, List, TypeVar
+from enum import Enum, auto
 T = TypeVar("T")
+
+
+class NodeState(Enum):
+    UNVISITED = auto()
+    VISITED = auto()
+    VISITING = auto()
 
 
 class GraphNode(Generic[T]):
@@ -11,6 +18,7 @@ class GraphNode(Generic[T]):
     def __init__(self, value: T) -> None:
         self.value: T = value
         self.nodes: List[GraphNode] = []
+        self.state: NodeState = NodeState.UNVISITED
     # endregion
     ################################################################################
 
@@ -20,8 +28,17 @@ class GraphNode(Generic[T]):
         if node not in self.nodes:
             self.nodes.append(node)
 
-    def get_neighbors(self):
+    def get_neighbors(self) -> List["GraphNode"]:
         return self.nodes
+
+    def is_visited(self) -> bool:
+        return self.state == NodeState.VISITED
+
+    def mark_visited(self) -> None:
+        self.state = NodeState.VISITED
+
+    def mark_visiting(self) -> None:
+        self.state = NodeState.VISITING
 
     def remove_neighbor(self, node: "GraphNode") -> None:
         if node in self.nodes:

@@ -1,7 +1,8 @@
 '''
 Implements a graph object.
 '''
-from GraphNode import GraphNode
+from GraphNode import GraphNode, NodeState
+from Queue import Queue
 from typing import Generic, List, Optional, TypeVar
 T = TypeVar("T")
 
@@ -9,7 +10,7 @@ T = TypeVar("T")
 class Graph(Generic[T]):
     ################################################################################
     # region CONSTRUCTOR
-    def __init__(self, directed=False) -> None:
+    def __init__(self, directed: bool = False) -> None:
         """Initializes a graph object"""
         self.nodes: List[GraphNode] = []
         self.directed = directed
@@ -19,7 +20,7 @@ class Graph(Generic[T]):
 
     ################################################################################
     # region PUBLIC INTERFACE
-    def add_edge(self, from_node: GraphNode, to_node: GraphNode, weight=1) -> None:
+    def add_edge(self, from_node: GraphNode, to_node: GraphNode, weight: int = 1) -> None:
         """Add an edge between two nodes"""
         self.add_node(from_node)
         self.add_node(to_node)
@@ -34,6 +35,31 @@ class Graph(Generic[T]):
             self.nodes.append(node)
             self.matrix[node] = {}
 
+    def bfs(self, from_node: GraphNode, to_node: GraphNode) -> bool:
+        """
+        Perform breadth-first search from start_node to to_node.
+        Returns True if a path exists, False otherwise.
+        """
+        if from_node not in self.nodes or to_node not in self.nodes:
+            return False
+        if from_node == to_node:
+            return True
+        for node in self.nodes:
+            node.mark_unvisited()
+        queue = Queue()
+        from_node.mark_visiting
+        queue.enqueue(from_node)
+        while not queue.is_empty():
+            current: GraphNode = queue.dequeue()
+            for neighbor in current.get_neighbors():
+                if neighbor.state == NodeState.UNVISITED:
+                    if neighbor == to_node:
+                        return True
+                    neighbor.mark_visiting
+                    queue.enqueue(neighbor)
+            current.mark_visited()
+        return False
+
     def find_node(self, value: T) -> Optional[GraphNode]:
         """Find a node by its value"""
         for node in self.nodes:
@@ -41,17 +67,17 @@ class Graph(Generic[T]):
                 return node
         return None
 
-    def get_weight(self, from_node, to_node) -> int:
+    def get_weight(self, from_node: GraphNode, to_node: GraphNode) -> int:
         """Get edge weight, return 0 if no edge"""
         if self.has_edge(from_node, to_node):
             return self.matrix[from_node][to_node]
         return 0
 
-    def has_edge(self, from_node, to_node) -> bool:
+    def has_edge(self, from_node: GraphNode, to_node: GraphNode) -> bool:
         """Check if an edge exists"""
         return from_node in self.matrix and to_node in self.matrix[from_node]
 
-    def print_matrix(self) -> str:
+    def print_matrix(self) -> None:
         """Return a str representation of the adjacency matrix"""
         result = ""
         nodes = sorted(self.nodes)
@@ -71,6 +97,9 @@ class Graph(Generic[T]):
                 and to_node in self.matrix
                 and from_node in self.matrix[to_node]):
             to_node.remove_neighbor(from_node)
+
+    # Alias for bfs
+    search_route = bfs
     # endregion
     ################################################################################
 

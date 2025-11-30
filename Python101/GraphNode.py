@@ -40,6 +40,9 @@ class GraphNode(Generic[T]):
     def mark_visiting(self) -> None:
         self.state = NodeState.VISITING
 
+    def mark_unvisited(self) -> None:
+        self.state = NodeState.UNVISITED
+
     def remove_neighbor(self, node: "GraphNode") -> None:
         if node in self.nodes:
             self.nodes.remove(node)

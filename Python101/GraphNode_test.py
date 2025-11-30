@@ -69,11 +69,21 @@ def test_GraphNode_mark_visited():
 
 
 ################################################################################
-# region GraphNode.mark_visited()
+# region GraphNode.mark_visiting()
 def test_GraphNode_mark_visiting():
     gn = GraphNode(1)
     gn.mark_visiting()
     assert gn.state == NodeState.VISITING
+# endregion
+################################################################################
+
+
+################################################################################
+# region GraphNode.mark_unvisited()
+def test_GraphNode_mark_unvisited():
+    gn = GraphNode(1)
+    gn.mark_unvisited()
+    assert gn.state == NodeState.UNVISITED
 # endregion
 ################################################################################
 

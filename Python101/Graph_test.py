@@ -90,6 +90,30 @@ def test_Graph_find_node_None():
 
 
 ################################################################################
+# region Graph.has_edge()
+def test_Graph_has_edge_True():
+    g = Graph()
+    gn1 = GraphNode(1)
+    gn2 = GraphNode(2)
+    g.add_node(gn1)
+    g.add_node(gn2)
+    g.add_edge(gn1, gn2)
+    assert g.has_edge(gn1, gn2) is True
+
+
+def test_Graph_has_edge_False():
+    g = Graph()
+    gn1 = GraphNode(1)
+    gn2 = GraphNode(2)
+    g.add_node(gn1)
+    g.add_node(gn2)
+    g.add_edge(gn2, gn1)
+    assert g.has_edge(gn1, gn2) is False
+# endregion
+################################################################################
+
+
+################################################################################
 # region Graph.print_matrix()
 def test_Graph_print_matrix():
     g = Graph()
@@ -97,7 +121,6 @@ def test_Graph_print_matrix():
     gn2 = GraphNode(2)
     g.add_edge(gn1, gn2)
     expected = "      1   2\n1  : [0, 1]\n2  : [0, 0]\n"
-    # assert g.get_matrix() == expected
     with patch('builtins.print') as mock_print:
         g.print_matrix()
         mock_print.assert_any_call(expected)

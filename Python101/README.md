@@ -196,17 +196,17 @@ A collection of functions and classes to illustrate how to solve basic problems 
 
 * [`types_tests.py`](./types_tests.py) defines unit tests to illustrate all basic data types:
 
-  * int
-  * float
-  * complex
-  * str
-  * bool
-  * list
-  * tuple
-  * range
-  * dict
-  * set
-  * frozenset
-  * NoneType
+  * `int`
+  * `float`
+  * `complex`
+  * `str`
+  * `bool`
+  * `list`
+  * `tuple`
+  * `range`
+  * `dict`
+  * `set`
+  * `frozenset`
+  * `NoneType`
 
 ***

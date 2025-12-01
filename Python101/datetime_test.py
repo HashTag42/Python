@@ -1,8 +1,5 @@
 import unittest
-from datetime import date
-from datetime import datetime
-from datetime import time
-from datetime import timedelta
+from datetime import date, datetime, time, timedelta
 
 
 class datetime_tests(unittest.TestCase):

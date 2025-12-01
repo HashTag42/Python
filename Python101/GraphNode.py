@@ -52,15 +52,19 @@ class GraphNode(Generic[T]):
     ################################################################################
     # region DUNDER METHODS
     def __eq__(self, other: object) -> bool:
+        """Enables equality comparison"""
         return isinstance(other, GraphNode) and self.value == other.value
 
     def __format__(self, format_spec) -> str:
+        """Enables f-string and the format() function"""
         return format(str(self.value), format_spec)
 
     def __hash__(self) -> int:
+        """Enables usage as objects in dictionary keys and sets"""
         return hash(self.value)
 
     def __lt__(self, other: object) -> bool:
+        """Enables sorting, comparisons, and order operations"""
         return isinstance(other, GraphNode) and self.value < other.value
 
     def __repr__(self) -> str:

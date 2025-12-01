@@ -1,12 +1,14 @@
 import unittest
-from functions import function
-from functions import power
-from functions import multi_add
-from functions import echo_kwargs
-from functions import echo_any
-from functions import echo_int_weak_typed
-from functions import echo_int_strong_typed
-from functions import slow_function
+from functions import (
+    echo_any,
+    echo_int_strong_typed,
+    echo_int_weak_typed,
+    echo_kwargs,
+    function,
+    multi_add,
+    power,
+    slow_function,
+)
 
 
 class functions_tests(unittest.TestCase):

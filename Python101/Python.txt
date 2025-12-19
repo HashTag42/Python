@@ -1,0 +1,169 @@
+if __name__ == "__main__":
+    main()
+
+# validate input type
+	def g(x: int, y: str):
+	   assert isinstance(x, int) and isinstance(y, str)
+
+# Ternary operator
+	value_if_true if condition else value_if_false
+
+# unittest framework
+	import unittest
+	class function_tests(unittest.TestCase):
+	    def test1(self):
+	        self.assertEqual(function(), expected)
+	    def test2(self):
+	        self.assertEqual(function(), expected)
+	if __name__ == "__main__":
+	    unittest.main()
+
+# isPrime(number)
+	import math
+	def isPrime(number):
+	    isPrime = True
+	    if number < 2:
+	        isPrime = False
+	    elif number == 2:
+	        isPrime = True
+	    elif number % 2 == 0:
+	        isPrime = False
+	    else:
+	        stop = int(math.sqrt(number)) + 1
+	        for d in range (3, stop, 2):
+	            if ((number % d) == 0):
+	                isPrime = False
+	                break
+	    return isPrime
+
+# Factorial (iterative)
+	def factorial_iterative(n):
+	    factorial = 1
+	    for i in range(1, n + 1):
+	        factorial *= i
+	    return factorial
+
+# Factorial (recursive)
+	def factorial_recursive(n):
+	    # Base case: if n is 0 or 1, return 1
+	    if n == 0 or n == 1:
+	        return 1
+	    # Recursive case: n! = n * (n-1)!
+	    else:
+	        return n * factorial_recursive(n - 1)
+
+# Fibonacci (iterative)
+	def fibonacci(n):
+	    if n <= 0:
+	        return 0
+	    elif n == 1:
+	        return 1
+	    a, b = 0, 1
+	    for _ in range(2, n + 1):
+	        a, b = b, a + b
+	    return b
+
+# Fibonacci (recursive)
+	def fibonacci(n):
+	    if n <= 0:
+	        return 0
+	    elif n == 1:
+	        return 1
+	    else:
+	        return fibonacci(n-1) + fibonacci(n-2)
+
+# Traversing a Linked List
+	current = head
+	while current:
+		current = current.next
+
+# Height of a Binary Tree (recursive)
+	def height(root):
+	    h = 0
+	    if root is None:
+	        h = -1
+	    else:
+	        lHeight = height(root.left)
+	        rHeight = height(root.right)
+	        h += 1 + max(lHeight, rHeight)
+	    return h
+
+# divmod()
+	# Returns quotient and remainder
+	quotient, remainder = divmod(17, 5)
+	# quotient = 3, remainder = 2
+
+# bitwise NOT: ~i = -(i + 1)
+	arr = ['a', 'b', 'c', 'd', 'e']
+	#      0    1    2    3    4
+	#     -5   -4   -3   -2   -1
+
+	i = 0: arr[~0] = arr[-1] = 'e'  # mirrors arr[0]
+	i = 1: arr[~1] = arr[-2] = 'd'  # mirrors arr[1]
+	i = 2: arr[~2] = arr[-3] = 'c'  # mirrors arr[2]
+
+	# Using ~i (bitwise NOT)
+	s[i], s[~i] = s[~i], s[i]
+
+	# Using negative indexing
+	s[i], s[-(i+1)] = s[-(i+1)], s[i]
+
+	# Using length
+	s[i], s[len(s)-1-i] = s[len(s)-1-i], s[i]
+
+# dictionary indexing
+	sign = {'L': -1, 'R': 1}[direction_str]
+
+# load a file into a matrix
+	with open(filename, 'r') as file:
+		matrix = [line.strip() for line in file]
+
+# deepcopy a matrix
+	matrix_copy = [row[:] for row in matrix]
+
+# print a matrix
+	for row in matrix:
+		print(' '.join(map(str, row)))
+
+# permutations
+	from itertools import permutations
+	perms = list(permutations(['a', 'b', 'c', 'd']))
+	# [('a', 'b', 'c', 'd'), ('a', 'b', 'd', 'c'), ('a', 'c', 'b', 'd'), ...]
+
+# decorators
+	def timer_decorator(base_fn):
+		def enhanced_fn(*args, **kwargs):
+			start_time = time.time()
+			result = base_fn(*args, **kwargs)
+			end_time = time.time()
+			print(f"Task time: {end_time - start_time} seconds")
+			return result
+		return enhanced_fn
+
+# standard libraries
+	from dataclasses import dataclass
+	from pathlib import Path
+	from functools import cache, lrucache, partial
+	from tomllib # work with .TOML files
+	from graphlib import TopologicalSorter # sort by dependencies
+	from heapq
+	from secrets
+	from shutil
+	import textwrap
+	from itertools import cycle, groupby, permutations
+
+# find max
+	max_points = max(max_points, r.points)
+	# find max value without a loop
+	max_points = max(r.points for r in results)
+	# Or if you need the object with the highest points (not just the value):
+	best = max(results, key=lambda r: r.points)
+
+# parse line into parts
+	line = "Comet can fly 14 km/s for 10 seconds, but then must rest for 127 seconds."
+	parts = line.split()
+	new_reindeer = Reindeer(parts[0], int(parts[3]), int(parts[6]), int(parts[13]))
+
+
+
+__

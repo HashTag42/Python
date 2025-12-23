@@ -164,6 +164,77 @@ if __name__ == "__main__":
 	parts = line.split()
 	new_reindeer = Reindeer(parts[0], int(parts[3]), int(parts[6]), int(parts[13]))
 
+# dunder methods
+    # Object lifecycle
+        __init__        # object initialization
+        __new__
+        __del__
+    # String/representation
+        __repr__        # developer-friendly str. useful for debugging. Does NOT fall back to __str__
+        __str__         # user-friend str. if not implemented, str() falls back to __repr__
+        __format__      # enables: f-strings and format()
+        __bytes__
+    # Comparison
+        __eq__          # enables: '==' equality comparison
+        __ne__
+        __lt__          # enables: sorting, comparisons, and order operations
+        __le__
+        __gt__
+        __ge__
+    # Hashing and identity
+        __hash__        # enables: usage as objects in dictionary keys and sets
+        __bool__        # boolean result, e.g. if object is not empty() return True
+    # Attribute access
+        __getattr__
+        __getattribute__
+        __setattr__
+        __delattr__
+        __dir__
+    # Descriptors
+        __get__
+        __set__
+        __delete__
+        __set_name__
+    # Container/sequence
+        __len__         # enables: len()
+        __length_hint__
+        __getitem__
+        __setitem__
+        __delitem__
+        __missing__
+        __contains__    # enables: if <item> in <object>
+        __iter__        # enables: for <item> in <object>
+        __reversed__
+    # Numeric operators
+        __add__, __sub__, __mul__, __matmul__, __truediv__, __floordiv__, __mod__, __divmod__, __pow__
+        __radd__, __rsub__, __rmul__, __rmatmul__, __rtruediv__, __rfloordiv__, __rmod__, __rdivmod__, __rpow__ (reflected)
+        __iadd__, __isub__, __imul__, __imatmul__, __itruediv__, __ifloordiv__, __imod__, __ipow__ (in-place)
+    # Bitwise operators
+        __and__, __or__, __xor__, __lshift__, __rshift__, __invert__
+        __rand__, __ror__, __rxor__, __rlshift__, __rrshift__ (reflected)
+        __iand__, __ior__, __ixor__, __ilshift__, __irshift__ (in-place)
+    # Unary operators
+        __neg__, __pos__, __abs__, __invert__
+    # Type conversion
+        __int__, __float__, __complex__, __index__, __round__, __trunc__, __floor__, __ceil__
+    # Callable and context managers
+        __call__, __enter__, __exit__
+    # Async
+        __await__, __aiter__, __anext__, __aenter__, __aexit__
+    # Class creation and metaclasses
+        __init_subclass__, __class_getitem__, __mro_entries__, __prepare__
+    # Copying and pickling
+        __copy__, __deepcopy__, __getstate__, __setstate__, __reduce__, __reduce_ex__, __getnewargs__, __getnewargs_ex__
+    # Slots and memory
+        __slots__
+    # Module-level
+        __getattr__ (module), __dir__ (module)
+    # Other
+        __sizeof__, __instancecheck__, __subclasscheck__, __subclasshook__, __buffer__, __release_buffer__
+
+# class encapsulation: to set as private, property/method name must begin with a double underscore
+    __property
+    __method()
 
 
 __

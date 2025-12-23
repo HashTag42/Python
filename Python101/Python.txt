@@ -164,7 +164,7 @@ if __name__ == "__main__":
 	parts = line.split()
 	new_reindeer = Reindeer(parts[0], int(parts[3]), int(parts[6]), int(parts[13]))
 
-# dunder methods
+# dunder/magic methods
     # Object lifecycle
         __init__        # object initialization
         __new__

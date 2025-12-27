@@ -8,7 +8,7 @@ The first 10 Fibonacci numbers, from F(0) to F(9), are: 0, 1, 1, 2, 3, 5, 8, 13,
 Learn more at <https://en.wikipedia.org/wiki/Fibonacci_sequence>
 '''
 
-from typing import List
+from typing import Generator
 error_message = "n must be equal to or greater than 0"
 
 
@@ -23,9 +23,8 @@ def fibonacci_nth_iterative(n: int) -> int:
         return n
     a, b = 0, 1
     for _ in range(2, n + 1):
-        c = a + b
-        a, b = b, c
-    return c
+        a, b = b, a + b
+    return b
 
 
 def fibonacci_nth_recursive(n: int) -> int:
@@ -56,7 +55,7 @@ def fibonacci_nth_recursive_with_memoization(n: int, memo={}) -> int:
     return memo[n]
 
 
-def fibonacci_sequence(n: int) -> List[int]:
+def fibonacci_sequence(n: int) -> list[int]:
     """ Returns a list of Fibonacci numbers from F(0) up to F(n). """
     if n < 0:
         raise ValueError(error_message)
@@ -69,3 +68,10 @@ def fibonacci_sequence(n: int) -> List[int]:
         a, b = b, c
         sequence.append(c)
     return sequence
+
+
+def fibonacci_generator() -> Generator[int, None, None]:
+    a, b = 0, 1
+    while True:
+        yield a
+        a, b = b, (a + b)

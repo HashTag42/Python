@@ -3,7 +3,8 @@ from fibonacci import (
     fibonacci_nth_iterative,
     fibonacci_nth_recursive,
     fibonacci_nth_recursive_with_memoization,
-    fibonacci_sequence
+    fibonacci_sequence,
+    fibonacci_generator,
 )
 
 
@@ -76,3 +77,13 @@ def test__fibonacci_sequence__(n, expected):
 def test__fibonacci_sequence__exceptions(n, expected):
     with pytest.raises(expected):
         fibonacci_sequence(n)
+
+
+# fibonnaci_generator()
+def test__fibonacci_generator__():
+    fib_gen = fibonacci_generator()
+    n = 10
+    result = ""
+    for i in range(n):
+        result += f"{next(fib_gen)}, "
+    assert result == "0, 1, 1, 2, 3, 5, 8, 13, 21, 34, "

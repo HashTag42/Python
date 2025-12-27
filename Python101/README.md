@@ -50,6 +50,7 @@ A collection of functions and classes to illustrate how to solve basic problems 
   * `fibonacci_nth_recursive(n)` returns F(n) through a recursive implementation
   * `fibonacci_nth_recursive_with_memoization(n)` returns F(n) through a recursive implementation using [memoization](https://en.wikipedia.org/wiki/Memoization) to store past results
   * `fibonacci_sequence(n)` returns a string representing a list of Fibonacci numbers from F(0) to F(n)
+  * `fibonacci_generator()` implements a `Generator` function
 
 * [`fibonacci_tests.py`](./fibonacci_tests.py) implements unit tests with 100% statement and branch coverage
 

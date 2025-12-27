@@ -156,21 +156,27 @@ class LinkedList__find__tests(unittest.TestCase):
         ll.append("A")
         ll.append("B")
         ll.append("C")
-        self.assertEqual(ll.find("A").data, "A")
+        node = ll.find("A")
+        assert node is not None
+        assert node.data == "A"
 
     def test_LinkedList__find__middle_node_found(self):
         ll = LinkedList()
         ll.append("A")
         ll.append("B")
         ll.append("C")
-        self.assertEqual(ll.find("B").data, "B")
+        node = ll.find("B")
+        assert node is not None
+        assert node.data == "B"
 
     def test_LinkedList__find__last_node_found(self):
         ll = LinkedList()
         ll.append("A")
         ll.append("B")
         ll.append("C")
-        self.assertEqual(ll.find("C").data, "C")
+        node = ll.find("C")
+        assert node is not None
+        assert node.data == "C"
 
     def test_LinkedList__find__no_node_found(self):
         ll = LinkedList()

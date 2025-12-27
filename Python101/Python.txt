@@ -206,8 +206,10 @@ if __name__ == "__main__":
         __iter__        # enables: for <item> in <object>
         __reversed__
     # Numeric operators
-        __add__, __sub__, __mul__, __matmul__, __truediv__, __floordiv__, __mod__, __divmod__, __pow__
-        __radd__, __rsub__, __rmul__, __rmatmul__, __rtruediv__, __rfloordiv__, __rmod__, __rdivmod__, __rpow__ (reflected)
+        __add__         # enables: + operator
+        __radd__        # is the reflected (or reverse) add method—it's called when the left operand doesn't support the operation.
+        __sub__, __mul__, __matmul__, __truediv__, __floordiv__, __mod__, __divmod__, __pow__
+        __rsub__, __rmul__, __rmatmul__, __rtruediv__, __rfloordiv__, __rmod__, __rdivmod__, __rpow__ (reflected)
         __iadd__, __isub__, __imul__, __imatmul__, __itruediv__, __ifloordiv__, __imod__, __ipow__ (in-place)
     # Bitwise operators
         __and__, __or__, __xor__, __lshift__, __rshift__, __invert__

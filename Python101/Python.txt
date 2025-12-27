@@ -164,6 +164,13 @@ if __name__ == "__main__":
 	parts = line.split()
 	new_reindeer = Reindeer(parts[0], int(parts[3]), int(parts[6]), int(parts[13]))
 
+# generators
+    def fibonacci_generator() -> Generator[int, None, None]:
+        a, b = 0, 1
+        while True:
+            yield a
+            a, b = b, (a + b)
+
 # dunder/magic methods
     # Object lifecycle
         __init__        # object initialization

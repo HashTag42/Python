@@ -8,7 +8,7 @@ from generators import (
 
 def test_csv_row_reader():
     reader = csv_row_reader('data.csv')
-    expected: list[tuple[str, str]] = [
+    expected: list[list[str]] = [
         ['name', ' age'],
         ['Bob', ' 20'],
         ['James', ' 32'],

@@ -72,6 +72,16 @@ A collection of functions and classes to illustrate how to solve basic problems 
 
 * [`functions_tests.py`](./functions_tests.py) implements unit tests with 100% statement and branch coverage
 
+## `Generator` functions
+
+* [`generators.py`](./generators.py) implements several Generator functions
+  * `csv_row_reader`
+  * `cumulative_sum`
+  * `fibonacci_generator`
+  * `infinite_repeater`
+
+* [`generators_test.py`](./generators_test.py) implements unit tests with 100% statement and branch coverage
+
 ## `Graph` class
 
 * [`Graph.py`](./Graph.py) implements a graph object with the following methods:
@@ -87,6 +97,8 @@ A collection of functions and classes to illustrate how to solve basic problems 
   * `__repr__()`
 
 * [`Graph_test.py`](./Graph_test.py) implement unit tests with 100% statement and branch coverage
+
+  * Uses the `mock_print` function to verify `print()` output
 
 ## `GraphNode` class
 
@@ -140,9 +152,7 @@ A collection of functions and classes to illustrate how to solve basic problems 
   * `__eq__()`
   * `__contains__()`
 
-* [`LinkedList_tests.py`](./LinkedList_tests.py) implements unit tests with 100% statement and branch coverage
-
-  * Uses the `mock_print` function to verify `print()` output
+* [`LinkedList_test.py`](./LinkedList_test.py) implements unit tests with 100% statement and branch coverage
 
 ## `Queue` class
 

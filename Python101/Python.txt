@@ -245,5 +245,11 @@ if __name__ == "__main__":
     __property
     __method()
 
+# logging
+    import logging
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(levelname)s: %(message)s",
+        )
 
 __

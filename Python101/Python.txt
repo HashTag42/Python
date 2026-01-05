@@ -252,4 +252,7 @@ if __name__ == "__main__":
         format="%(levelname)s: %(message)s",
         )
 
+# transpose matrix
+    zip(*matrix)
+
 __

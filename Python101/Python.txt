@@ -255,4 +255,8 @@ if __name__ == "__main__":
 # transpose matrix
     zip(*matrix)
 
+# run pytests on exit
+    if __name__ == '__main__':
+        raise SystemExit(pytest.main([__file__]))
+
 __
